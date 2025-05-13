@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Steps AI API Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+        .button.secondary {
+            background-color: #95a5a6;
+        }
+        .button.secondary:hover {
+            background-color: #7f8c8d;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .endpoint {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+        .http-method {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .get {
+            background-color: #61affe;
+            color: white;
+        }
+        .post {
+            background-color: #49cc90;
+            color: white;
+        }
+        .put, .patch {
+            background-color: #fca130;
+            color: white;
+        }
+        .delete {
+            background-color: #f93e3e;
+            color: white;
+        }
+        .ws {
+            background-color: #9012fe;
+            color: white;
+        }
+        .endpoint-path {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff5e6;
+            padding: 15px;
+            border-left: 5px solid #e67e22;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Steps AI API Documentation</h1>
+        <p>REST API for Smart Steps AI Professional Persona system, a tool for facilitators, therapists, probation officers, and similar professionals.</p>
+    
+        <div class="button-container">
+            <a href="/api/docs" class="button">Swagger UI Documentation</a>
+            <a href="/api/redoc" class="button secondary">ReDoc Documentation</a>
+        </div>
+    </header>
+
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>The Smart Steps AI API provides programmatic access to the Smart Steps AI Professional Persona system. This API allows you to:</p>
+        <ul>
+            <li>Create and manage AI professional personas with detailed backstories, expertise areas, and conversation styles</li>
+            <li>Start and manage therapy sessions</li>
+            <li>Exchange messages with AI personas</li>
+            <li>Access real-time conversation through WebSockets</li>
+            <li>Generate insights and analysis from conversation data</li>
+        </ul>
+
+        <h3>Base URL</h3>
+        <pre><code>https://api.smartsteps.ai/api/v1</code></pre>
+        <p class="note">All API requests should be prefixed with this base URL.</p>
+    </div>
+
+    <div class="section">
+        <h2>Authentication</h2>
+        <p>The API uses JWT (JSON Web Token) for authentication. To authenticate:</p>
+        <ol>
+            <li>Make a POST request to <code>/auth/token</code> with your username and password</li>
+            <li>Use the returned token in the Authorization header for subsequent requests</li>
+        </ol>
+
+        <h3>Example</h3>
+        <pre><code>POST /auth/token
+Content-Type: application/x-www-form-urlencoded
+
+username=your_username&password=your_password</code></pre>
+
+        <p>Response:</p>
+        <pre><code>{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer"
+}</code></pre>
+
+        <p>Using the token:</p>
+        <pre><code>GET /sessions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</code></pre>
+
+        <p class="warning">Keep your tokens secure and never share them!</p>
+    </div>
+
+    <div class="section">
+        <h2>Key Endpoints</h2>
+
+        <div class="endpoint">
+            <h3><span class="http-method post">POST</span> <span class="endpoint-path">/auth/token</span></h3>
+            <p>Authenticate and get an access token.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method get">GET</span> <span class="endpoint-path">/personas</span></h3>
+            <p>List all available professional personas.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method post">POST</span> <span class="endpoint-path">/personas</span></h3>
+            <p>Create a new professional persona.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method get">GET</span> <span class="endpoint-path">/sessions</span></h3>
+            <p>List all therapy sessions.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method post">POST</span> <span class="endpoint-path">/sessions</span></h3>
+            <p>Create a new therapy session.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method post">POST</span> <span class="endpoint-path">/conversations/{session_id}/messages</span></h3>
+            <p>Send a message in a therapy session and receive an AI response.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method get">GET</span> <span class="endpoint-path">/conversations/{session_id}/messages</span></h3>
+            <p>Get conversation history for a therapy session.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method ws">WS</span> <span class="endpoint-path">/ws/{session_id}</span></h3>
+            <p>WebSocket endpoint for real-time conversation.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="http-method post">POST</span> <span class="endpoint-path">/analysis/sessions/{session_id}/analyze</span></h3>
+            <p>Generate insights and analysis from a therapy session.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success</td>
+            </tr>
+            <tr>
+                <td>201</td>
+                <td>Created</td>
+            </tr>
+            <tr>
+                <td>204</td>
+                <td>No Content (successful deletion)</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Bad Request (invalid input)</td>
+            </tr>
+            <tr>
+                <td>401</td>
+                <td>Unauthorized (missing or invalid token)</td>
+            </tr>
+            <tr>
+                <td>403</td>
+                <td>Forbidden (insufficient permissions)</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Not Found</td>
+            </tr>
+            <tr>
+                <td>422</td>
+                <td>Validation Error</td>
+            </tr>
+            <tr>
+                <td>429</td>
+                <td>Too Many Requests (rate limit exceeded)</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal Server Error</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Rate Limiting</h2>
+        <p>The API implements rate limiting to prevent abuse. If you exceed the rate limit, you will receive a 429 Too Many Requests response.</p>
+        <p>The current rate limit is 100 requests per minute per IP address.</p>
+    </div>
+
+    <div class="section">
+        <h2>Webhooks</h2>
+        <p>The API can send webhooks for various events. To receive webhooks, you need to register a webhook URL in your account settings.</p>
+        <p>Webhook events include:</p>
+        <ul>
+            <li>Session created</li>
+            <li>Session completed</li>
+            <li>New message received</li>
+            <li>Analysis completed</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>SDKs and Client Libraries</h2>
+        <p>We provide official client libraries for several languages:</p>
+        <ul>
+            <li><a href="#">Python SDK</a></li>
+            <li><a href="#">JavaScript SDK</a></li>
+            <li><a href="#">C# SDK for Unity</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Smart Steps AI API Documentation | Version 0.1.0 | Last Updated: May 12, 2025</p>
+        <p>For support, contact <a href="mailto:support@smartsteps.ai">support@smartsteps.ai</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "id": "40029f82-5793-4968-86ea-d50543688efb",
+  "client_name": "Test Client",
+  "session_type": "standard",
+  "persona_name": "test_persona",
+  "created_at": "2025-05-13T07:18:49.824103",
+  "updated_at": "2025-05-13T07:18:49.824229",
+  "state": "active",
+  "messages_count": 6,
+  "duration_seconds": 0,
+  "tags": [],
+  "custom_fields": {}
+}

@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  smartsteps-api:
+    build:
+      context: ../..
+      dockerfile: scripts/docker/Dockerfile
+    image: smartsteps-ai:latest
+    container_name: smartsteps-api
+    restart: unless-stopped
+    ports:
+      - "8543:8543"
+    volumes:
+      - smartsteps-config:/etc/smartsteps
+      - smartsteps-data:/app/data
+      - smartsteps-logs:/app/logs
+    environment:
+      - SMARTSTEPS_ENV=production
+      - SMARTSTEPS_CONFIG_DIR=/etc/smartsteps
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8543/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Optional MongoDB service if using MongoDB for storage
+  # mongodb:
+  #   image: mongo:5.0
+  #   container_name: smartsteps-mongodb
+  #   restart: unless-stopped
+  #   volumes:
+  #     - mongodb-data:/data/db
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=smartsteps
+  #     - MONGO_INITDB_ROOT_PASSWORD=password
+  #   command: ["--auth"]
+  #   ports:
+  #     - "27017:27017"
+
+  # Optional Redis service for caching
+  # redis:
+  #   image: redis:6.2-alpine
+  #   container_name: smartsteps-redis
+  #   restart: unless-stopped
+  #   command: redis-server --requirepass password
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+
+  # Example of a monitoring service
+  # prometheus:
+  #   image: prom/prometheus:v2.30.0
+  #   container_name: smartsteps-prometheus
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #     - prometheus-data:/prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   depends_on:
+  #     - smartsteps-api
+
+volumes:
+  smartsteps-config:
+    name: smartsteps-config
+  smartsteps-data:
+    name: smartsteps-data
+  smartsteps-logs:
+    name: smartsteps-logs
+  # mongodb-data:
+  #   name: smartsteps-mongodb-data
+  # redis-data:
+  #   name: smartsteps-redis-data
+  # prometheus-data:
+  #   name: smartsteps-prometheus-data
+
+networks:
+  default:
+    name: smartsteps-network

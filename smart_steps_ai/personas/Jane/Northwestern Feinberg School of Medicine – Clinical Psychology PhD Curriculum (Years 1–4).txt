@@ -1,0 +1,184 @@
+Northwestern Feinberg School of Medicine –
+Clinical Psychology PhD Curriculum (Years 1–4)
+Figure: Official program timeline for Northwestern’s Clinical Psychology PhD (years 1–5), showing coursework,
+research, and practicum milestones. By design, Year 1 emphasizes foundational science and clinical methods,
+Year 2 adds advanced courses and the first practicum, and Years 3–4 emphasize specialization and independent
+research 1 2 .
+Year 1: Foundations in Science and Practice
+• Courses: Students complete ~12 credits (3–4 courses/quarter) covering core scientific and clinical
+content 3 . Required classes include the Assessment sequence (Psych. Assessment I–III),
+Psychopathology, Introduction to Psychotherapy, Diversity in Psychological Science & Practice,
+Scientific & Professional Ethics, plus advanced research/statistics (Research Methods I–III,
+Advanced Design). In addition, they take foundational discipline courses in cognition, emotion,
+development and neurobiology (e.g. Cognitive Psychology, Behavioral Neuroscience, Life-Span
+Developmental Psychology) 4 .
+• Core Concepts & Theories: The curriculum covers the major paradigms of psychology. In
+assessment courses, students learn standardized testing of intelligence, memory and achievement
+(e.g. WAIS/WISC administration) and report writing 5 . Psychopathology courses survey DSM-5
+diagnostic criteria for mood, anxiety, psychotic and other disorders and their etiological models 6 .
+Students are introduced to major intervention models (CBT, psychodynamic, family systems, etc.) in
+Introduction to Psychotherapy. Simultaneously, cognitive-affective models and basic neuroscience
+1
+
+(e.g. brain–behavior relationships) are learned in discipline-specific classes, integrating biological,
+cognitive and developmental perspectives 4 6 .
+• Key Readings/Textbooks: Core texts typically include the DSM-5 (APA, 2013) for diagnosis, Sattler’s
+Assessment of Children or Groth-Marnat’s Handbook of Psychological Assessment for testing, standard
+abnormal psychology texts (e.g. Comer’s Abnormal Psychology), and psychotherapy theory primers
+(e.g. Corey’s Theory and Practice of Psychotherapy). Statistics and research methods are supported by
+texts like Rumsey’s Statistics for Psychology or Maxwell’s Designing Experiments. (These are illustrative
+examples of top-tier materials used in such courses.)
+• Clinical Practicum: Training begins immediately. In summer of Year 1 (July onward) students start
+an introductory practicum (5–10 hours/week) under licensed supervision 7 . Typical first-year
+placements are within Northwestern’s system – e.g. observation/assessment practicums at
+Northwestern Medicine’s Adult Psychiatry clinic or at Lurie Children’s testing service 8 7 . The goal
+is orientation: students begin taking brief histories and observing intake evaluations under
+supervision.
+• Ethics & Multicultural Integration: Ethical principles and cultural competence are introduced
+explicitly via the required Ethics and Diversity courses 9 10 . From the start, students discuss
+confidentiality, informed consent, and culture (race, gender, etc.) in both research and clinical
+settings, setting a framework that guides all clinical interactions and research design.
+• Competency Goals: By year’s end, students have built a broad knowledge base – they can conduct
+basic psychological tests, formulate DSM-based diagnoses, and understand major treatment
+models. They also have the statistical and research-design skills to begin contributing in a lab 1
+3 . This foundation supports all future learning.
+Year 2: Advanced Coursework and First Practicum
+• Courses: In Year 2 students register ~9–12 credits, shifting focus to applied and elective courses 11 .
+A required class is Cognitive-Behavioral Therapy (CLIN_PSY 444), which teaches CBT theory, case
+formulation, and interventions (e.g. cognitive restructuring, exposure) across disorders 12 .
+Remaining credits come from discipline-specific and elective offerings. For example, students might
+take advanced psychological assessment (CLIN_PSY 404, focusing on clinical interviews and
+personality measures) 13 or start an elective in their track (e.g. Behavioral Neuroscience if not yet
+taken, or Advanced Research Methodology). Additional electives (ACT, DBT, family therapy, etc.) can be
+taken if workload permits.
+• Core Concepts: Year 2 deepens clinical knowledge. The CBT course immerses students in cognitive
+theory (Beck’s model, cognitive distortions) and behavioral principles (learning theory, activation
+strategies) 12 . Assessment training continues with integration of data (projective tests, structured
+interviews) and cultural considerations 13 . Students also begin developing research skills (e.g.
+advanced statistics or data analysis techniques) to support their Research Qualifying Paper.
+• Key Readings/Textbooks: Examples include Beck’s Cognitive Therapy of Depression or Treatment Plans
+and Interventions for Depression in CBT courses, and Sattler/Groth-Marnat for advanced assessment.
+The SCID interview guide (First et al.) is often used for diagnostic practice. Research methods
+readings (e.g. textbooks on multiple regression, experimental design) accompany lab work.
+• Clinical Practicum: Year 2 marks the first full-year practicum (15–20+ hours/week) 14 .
+Placements are assigned by Major Area of Study: e.g. Adult-track students may be at Northwestern’s
+outpatient psychiatric clinic; Child-track students at Lurie Children’s neuropsych testing service;
+Neuropsychology-track students at the NMG Neuropsychology clinic 8 14 . Under weekly
+individual supervision (plus group seminars), students conduct intakes, testing batteries, and short-
+2
+
+term therapy as appropriate. This hands-on training builds practical skills in assessment and basic
+therapy under close mentorship.
+• Ethics & Multicultural: The issues raised in Year 1 courses are now applied in practice. In practicum,
+students face real ethical choices (e.g. confidentiality, dual relationships) and must consider clients’
+cultural backgrounds in case conceptualization. Supervisors emphasize cultural humility and ethical
+decision-making in case discussions.
+• Competency Goals: By end of Year 2, students have begun to integrate science and practice. They
+can administer and interpret several psychological tests, do diagnostic interviewing, and conduct
+CBT-informed therapy under supervision. They also have engaged in original research design – by
+this point they begin their Research Qualifying Paper (an empirical study with mentor support) 15 .
+This year prepares them for greater independence: managing a caseload (~1–2 therapy cases) while
+writing and analyzing a modest research project.
+Year 3: Specialization and Advanced Skills
+• Courses: Students register another 9–12 credits, choosing remaining required and elective courses
+16 . By Year 3 most core requirements are done, so coursework is largely electives aligned with
+students’ Major Area. Typical offerings include: Advanced Psychotherapy models (e.g. Dialectical
+Behavior Therapy CLIN_PSY 447 17 , Acceptance & Commitment Therapy CLIN_PSY 446 18 ), Family
+Therapy (CLIN_PSY 432), Sexual Disorders & Couple Therapy (CLIN_PSY 442) 19 , Child/Adolescent
+Psychotherapy or Child Psychopathology (for Child track) 20 , Neuropsychology (Principles of
+Neuroimaging CLIN_PSY 471; Neuropsych Assessment 475) 21 22 , Behavioral Medicine/Health
+Psychology (CLIN_PSY 476–478) 23 , Forensic Psychology (CLIN_PSY 483) 24 , etc. Electives can also
+include advanced statistics or seminar courses (e.g. Diversity or Social Psychology seminars).
+Students tailor this year to their interests and intended specialty.
+• Specialization Tracks: By Year 3 each student has declared a Major Area of Study (Adult, Child,
+Neuropsychology, Forensic, or Behavioral Medicine) 25 . Electives and practica match this track. For
+example, a Clinical Adult student might focus on trauma or couples: Northwestern has a Child
+Trauma Center that doctoral students can rotate through, and the Sexual Disorders & Couple Therapy
+course covers marital/sexual issues 19 . A Health/Behavioral Medicine student would take Health
+Psychology (CLIN_PSY 476) and Motivation & Self-Control in Health Behavior (477) 23 . A
+Neuropsychology student enrolls in Brain & Behavior: Intro to Neuropsychology (472) and
+Neuroanatomy (473). Thus by mid-program students develop deep expertise (e.g. specialized
+intervention models, developmental psychopathology, medical neuro, etc.) within their chosen
+niche.
+• Key Readings/Textbooks: Specialized courses use advanced texts: e.g. Linehan’s DBT Skills Training
+Manual for DBT, Hayes’s ACT: An Experiential Approach for ACT, Nichols & Schwartz’s Family Therapy for
+systems work, Mash & Barkley’s Child Psychopathology for child disorders, Lezak’s Neuropsychological
+Assessment for neuro track, and primary literature (e.g. NIH “Clinical Practice Guidelines” for couples
+therapy). Again, exact readings depend on instructor.
+• Clinical Practicum: This is the second year-long practicum (15–20+ hrs/week) 14 . Placements
+become more specialized: examples include VA medical centers, hospital inpatient units, outpatient
+specialty clinics (depression/anxiety, pediatric rehab, etc.) or prison/forensic settings 26 . Students
+carry more complex cases (often their own therapy case load and test batteries) and must
+demonstrate integrated skills. Supervision remains weekly (individual and group), but students are
+expected to take increasing initiative in case formulation and treatment planning.
+3
+
+• Ethics & Multicultural: Ethical decision-making and cultural considerations become second-nature.
+For instance, when treating diverse populations (e.g. working with non-English-speaking clients or
+clients from different religious backgrounds), students apply multicultural frameworks learned
+earlier. All faculty mentors and supervisors emphasize culturally informed practice and research
+ethics in ongoing seminars and case conferences.
+• Competency Goals: By the end of Year 3 students must pass the Clinical Qualifying Exam
+(demonstrating mastery of clinical theory, ethics, and case judgment) and complete the Research
+Qualifying Paper 27 . This reflects integrated competency: they have shown independent case
+conceptualization skills, applied interventions, and published or near-publishable empirical work. In
+sum, Year 3 consolidates knowledge across domains (biological, cognitive, social, developmental)
+and starts launching students into autonomous researcher- and clinician-level roles.
+Year 4: Advanced Practicum, Research, and Teaching
+• Courses: Few formal classes remain. Students typically enroll in Advanced Study/Research credit
+(TGS 500/590) while focusing on dissertation research 28 . Any remaining elective requirements (if
+any) are finished, but most coursework is complete by Year 3. At most, students might take a
+seminar or two if needed for professional development, but the emphasis is on independent work.
+• Research: The primary focus is the dissertation. By the end of Year 4 the dissertation proposal must
+be defended 29 . Students often continue contributing to publications and seek external funding
+(e.g. NIH F31). Approximately 20–30 hours/week remain in the research lab as students transition to
+project leadership 2 .
+• Clinical Practicum: This is the third (sometimes fourth) year-long practicum, with even greater
+responsibility 30 . Placements are “advanced” — for example, as lead therapist in a specialty
+program or senior diagnostician in neuropsych. Students manage more challenging cases with
+greater autonomy (e.g. conducting long-term therapy, comprehensive neuropsych evaluations)
+under supervisory oversight. A typical commitment remains ~15–20 hours/week 14 . This advanced
+training ensures that students are ready to assume full responsibility on internship.
+• Teaching Experience: In accordance with Northwestern policy, each student serves as a Teaching
+Assistant for one quarter in Year 4 31 32 . This involves lecturing and leading discussion/lab
+sections for courses taught to first-year students (often research methods or statistics). Through
+teaching, students reinforce their grasp of foundational material and gain pedagogical skills.
+• Ethics & Multicultural: By Year 4, ethical and cultural considerations inform all activities. Students
+now mentor junior clinicians, ensuring they model confidentiality and cultural humility. In research,
+they address ethics of human subjects (IRB procedures) and issues like justice (e.g. designing studies
+with diverse samples). Continual reflection on multicultural competence (a focus of the diversity
+seminar) is expected in leadership roles.
+• Competency Goals: Year 4 cements the transition from trainee to independent clinical scientist.
+Students complete their dissertation proposal and continue advanced research, demonstrating
+scholarly independence 29 . Clinically, the advanced practicum and TA role show that they can
+function as entry-level psychologists: diagnosing and treating patients across populations,
+supervising others informally, and teaching peers. This sets the stage for Year 5–6 internship, where
+they will apply their fully integrated competencies in practice.
+Sources: Northwestern Feinberg School of Medicine Clinical Psychology PhD official curriculum pages and
+handbook 1 33 3 9 14 16 34 (supplemented by relevant course descriptions and peer-program
+4
+
+standards 25 2 ). Each year’s elements are drawn from Northwestern’s published timeline, course catalog,
+and graduate handbook, ensuring accuracy to the Feinberg program.
+1 8 15 Timeline: Department of Psychiatry & Behavioral Sciences: Feinberg School of Medicine
+26 27 29 https://www.psychiatry.northwestern.edu/education/clinical-psychology-phd/curriculum/timeline.html
+30 31 34
+2 Clinical & Research Training: Department of Psychiatry & Behavioral Sciences: Feinberg School of
+Medicine
+https://www.psychiatry.northwestern.edu/education/clinical-psychology-phd/curriculum/clinical-research-training.html
+3 4 7 psychiatry.northwestern.edu
+11 14 16 https://www.psychiatry.northwestern.edu/docs/graduate-handbook_2023-2024_final.pdf
+28
+5 6 9 Clinical Psychology (CLIN_PSY) | Northwestern University Academic Catalog
+10 12 13 https://catalogs.northwestern.edu/tgs/courses-az/clin_psy/
+17 18 19
+20 21 22
+23 24
+25 Clinical Psychology: The Graduate School - Northwestern University
+https://www.tgs.northwestern.edu/admission/academic-programs/explore-programs/clinical-psychology.html
+32 Microsoft Word - NUFSM Clin Psy Teaching Requirement.2010
+https://www.psychiatry.northwestern.edu/docs/phd-teaching-requirement.pdf
+33 Courses: Department of Psychiatry & Behavioral Sciences: Feinberg School of Medicine
+https://www.psychiatry.northwestern.edu/education/clinical-psychology-phd/curriculum/courses.html
+5
+

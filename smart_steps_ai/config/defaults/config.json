@@ -1,0 +1,44 @@
+{
+  "app": {
+    "name": "smart_steps_ai",
+    "version": "0.1.0",
+    "environment": "development",
+    "log_level": "info"
+  },
+  "paths": {
+    "personas_dir": "G:/My Drive/Deftech/SmartSteps/ss_unity/resources/ai_module/config/personas",
+    "sessions_dir": "data/sessions",
+    "logs_dir": "logs",
+    "exports_dir": "data/exports"
+  },
+  "ai": {
+    "provider": "mock",
+    "default_model": "mock-therapist",
+    "max_tokens": 4000,
+    "temperature": 0.5,
+    "default_persona": "professional_therapist"
+  },
+  "memory": {
+    "enabled": true,
+    "system": "claude-memory",
+    "memory_dir": "G:/My Drive/Deftech/SmartSteps/claude-memory"
+  },
+  "session": {
+    "default_session_type": "standard",
+    "max_history_length": 50,
+    "auto_save": true,
+    "auto_save_interval": 60
+  },
+  "analysis": {
+    "default_insight_count": 3,
+    "sentiment_analysis": true,
+    "progress_tracking": true
+  },
+  "api": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": true,
+    "allow_cors": true
+  }
+}

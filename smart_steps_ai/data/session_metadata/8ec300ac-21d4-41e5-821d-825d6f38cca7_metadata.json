@@ -1,0 +1,13 @@
+{
+  "id": "8ec300ac-21d4-41e5-821d-825d6f38cca7",
+  "client_name": "Test Client",
+  "session_type": "standard",
+  "persona_name": "professional_therapist",
+  "created_at": "2025-05-13T07:12:21.604708",
+  "updated_at": "2025-05-13T07:12:21.604710",
+  "state": "created",
+  "messages_count": 0,
+  "duration_seconds": 0,
+  "tags": [],
+  "custom_fields": {}
+}

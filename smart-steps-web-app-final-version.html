@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Steps Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .screen {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .active {
+            display: block;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button.selected {
+            background-color: #27ae60;
+        }
+        
+        /* Flip card styling - SMALLER CARDS */
+        #card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .card-container {
+            perspective: 1000px;
+            width: 80%;
+            height: 100px;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .card-front {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-image: linear-gradient(45deg, #3498db 25%, #2980b9 25%, #2980b9 50%, #3498db 50%, #3498db 75%, #2980b9 75%, #2980b9 100%);
+            background-size: 10px 10px;
+            border: 2px solid #2980b9;
+        }
+        .card-back {
+            background-color: white;
+            border: 1px solid #ddd;
+            transform: rotateY(180deg);
+            text-align: center;
+        }
+        .card.selected .card-back {
+            background-color: #f0fff4;
+            border-color: #27ae60;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .scenario-image {
+            width: 100%;
+            height: 300px; /* Increased height for better viewing */
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden; /* Ensures the image stays within the container */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scenario-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the image covers the container nicely */
+            display: block;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .metric {
+            margin: 15px 0;
+        }
+        .metric label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .slider-container {
+            display: flex;
+            align-items: center;
+        }
+        .slider {
+            flex-grow: 1;
+        }
+        .slider-value {
+            min-width: 40px;
+            text-align: right;
+            margin-left: 10px;
+        }
+        .session-id {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 20px 0;
+        }
+        #status-message {
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        
+        /* Dashboard styles */
+        .dashboard-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .dashboard-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .dashboard-tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+        }
+        .dashboard-content {
+            display: none;
+        }
+        .dashboard-content.active {
+            display: block;
+        }
+        .sessions-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .session-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .session-item:hover {
+            background-color: #f5f5f5;
+        }
+        .session-item:last-child {
+            border-bottom: none;
+        }
+        .session-date {
+            font-size: 12px;
+            color: #666;
+        }
+        .session-detail {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        /* Modal styles for session details */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .metrics-chart {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 20px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .score-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .score-box {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .score-box h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .back-button {
+            background-color: #95a5a6;
+            margin-bottom: 20px;
+        }
+        .back-button:hover {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu Screen -->
+        <div id="main-menu" class="screen active">
+            <h1>Smart Steps Assessment Tool</h1>
+            <p>Select your role to begin:</p>
+            <button onclick="showScreen('admin-dashboard')">Admin (Facilitator)</button>
+            <button onclick="showScreen('client-connect')">Client (Participant)</button>
+        </div>
+
+        <!-- Admin Dashboard Screen -->
+        <div id="admin-dashboard" class="screen">
+            <button class="back-button" onclick="returnToMainMenu()">← Back to Main Menu</button>
+            <h1>Admin Dashboard</h1>
+            
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <div class="dashboard-tab active" onclick="showDashboardTab('new-session')">New Session</div>
+                <div class="dashboard-tab" onclick="showDashboardTab('past-sessions')">Past Sessions</div>
+            </div>
+            
+            <!-- New Session Tab Content -->
+            <div id="new-session" class="dashboard-content active">
+                <div id="scenario-selection">
+                    <h2>Select a Scenario:</h2>
+                    <button id="scenario1" onclick="selectScenario(1)" class="scenario-btn">The Meeting</button>
+                    <button id="scenario2" onclick="selectScenario(2)" class="scenario-btn">The Wallet</button>
+                    <button id="scenario3" onclick="selectScenario(3)" class="scenario-btn">The Argument</button>
+                    
+                    <div style="margin-top: 20px;">
+                        <button id="launch-btn" onclick="launchSession()" disabled>Launch Session</button>
+                    </div>
+                    
+                    <div id="session-id-display"></div>
+                </div>
+            </div>
+            
+            <!-- Past Sessions Tab Content -->
+            <div id="past-sessions" class="dashboard-content">
+                <h2>Past Assessment Sessions</h2>
+                <div class="sessions-list" id="sessions-list">
+                    <!-- Session items will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Session Details Modal -->
+        <div id="session-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeSessionModal()">&times;</span>
+                <h2 id="modal-session-title">Session Details</h2>
+                <p id="modal-session-id">Session ID: 123456</p>
+                <p id="modal-session-date">Date: 04/15/2025</p>
+                
+                <h3>Participant Metrics</h3>
+                <div class="metrics-chart">
+                    [Metrics Visualization Chart]
+                </div>
+                
+                <div class="score-container">
+                    <div class="score-box">
+                        <h4>Self-awareness</h4>
+                        <div class="score-value" id="modal-self-awareness">7.5</div>
+                    </div>
+                    <div class="score-box">
+                        <h4>Self-management</h4>
+                        <div class="score-value" id="modal-self-management">8.2</div>
+                    </div>
+                    <div class="score-box">
+                        <h4>Social awareness</h4>
+                        <div class="score-value" id="modal-social-awareness">6.8</div>
+                    </div>
+                    <div class="score-box">
+                        <h4>Relationship skills</h4>
+                        <div class="score-value" id="modal-relationship-skills">7.3</div>
+                    </div>
+                    <div class="score-box">
+                        <h4>Decision making</h4>
+                        <div class="score-value" id="modal-decision-making">8.0</div>
+                    </div>
+                    <div class="score-box">
+                        <h4>Self-disclosure</h4>
+                        <div class="score-value" id="modal-self-disclosure">6.5</div>
+                    </div>
+                </div>
+                
+                <h3>Facilitator Notes</h3>
+                <div id="modal-notes">
+                    Session notes will appear here.
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <button onclick="closeSessionModal()">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Connect Screen -->
+        <div id="client-connect" class="screen">
+            <button class="back-button" onclick="returnToMainMenu()">← Back to Main Menu</button>
+            <h1>Connect to Session</h1>
+            <p>Enter the session ID provided by your facilitator:</p>
+            <input type="text" id="session-id-input" maxlength="6" placeholder="6-digit ID">
+            <div>
+                <button onclick="connectToSession()">Connect</button>
+            </div>
+            <p id="status-message"></p>
+        </div>
+
+        <!-- Game Screen (Scenario) -->
+        <div id="game-screen" class="screen">
+            <h1 id="scenario-title">Scenario Title</h1>
+            <p id="scenario-description">Scenario description will appear here.</p>
+            
+            <div class="scenario-image" id="scenario-image">
+                <!-- Image will be loaded here -->
+            </div>
+            
+            <h2>Choose an option:</h2>
+            <div id="card-container">
+                <div class="card-container">
+                    <div class="card" id="card1" onclick="selectCard(0)">
+                        <div class="card-face card-front">Option 1</div>
+                        <div class="card-face card-back">Option 1 description</div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card" id="card2" onclick="selectCard(1)">
+                        <div class="card-face card-front">Option 2</div>
+                        <div class="card-face card-back">Option 2 description</div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card" id="card3" onclick="selectCard(2)">
+                        <div class="card-face card-front">Option 3</div>
+                        <div class="card-face card-back">Option 3 description</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button id="continue-btn" onclick="continueToDiscussion()" disabled>Continue</button>
+            </div>
+        </div>
+
+        <!-- Discussion Screen -->
+        <div id="discussion-screen" class="screen">
+            <h1>Discussion Phase</h1>
+            <h2 id="discussion-scenario-title">Scenario Title</h2>
+            <p id="selected-option">Selected option: [Option text]</p>
+            
+            <!-- Admin-only section -->
+            <div id="admin-controls" style="display:none;">
+                <h3>Facilitator Notes:</h3>
+                <textarea id="discussion-notes" placeholder="Enter your observations and notes here..."></textarea>
+                
+                <h3>Metrics:</h3>
+                <div class="metric">
+                    <label>Self-awareness (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="self-awareness" oninput="updateSliderValue('self-awareness')">
+                        <span class="slider-value" id="self-awareness-value">5</span>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Self-management (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="self-management" oninput="updateSliderValue('self-management')">
+                        <span class="slider-value" id="self-management-value">5</span>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Social awareness (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="social-awareness" oninput="updateSliderValue('social-awareness')">
+                        <span class="slider-value" id="social-awareness-value">5</span>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Relationship skills (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="relationship-skills" oninput="updateSliderValue('relationship-skills')">
+                        <span class="slider-value" id="relationship-skills-value">5</span>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Responsible decision making (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="decision-making" oninput="updateSliderValue('decision-making')">
+                        <span class="slider-value" id="decision-making-value">5</span>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Self-disclosure (1-10):</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="self-disclosure" oninput="updateSliderValue('self-disclosure')">
+                        <span class="slider-value" id="self-disclosure-value">5</span>
+                    </div>
+                </div>
+                
+                <button id="next-level-btn" onclick="proceedToNextLevel()">Proceed to Next Level</button>
+                <button onclick="saveResults()">Save Results</button>
+            </div>
+            
+            <!-- Client-only section -->
+            <div id="client-controls" style="display:none;">
+                <p>Discussion in progress. Please wait for the facilitator to continue.</p>
+                <button onclick="clientReady()">I'm Ready to Continue</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h1>Assessment Complete</h1>
+            <h2>Session Summary</h2>
+            <div id="results-content">
+                <p>Thank you for completing the Smart Steps assessment.</p>
+            </div>
+            
+            <!-- Admin-only section -->
+            <div id="admin-results" style="display:none;">
+                <h3>Participant Metrics:</h3>
+                <div id="metrics-summary"></div>
+                <h3>Notes:</h3>
+                <div id="notes-summary"></div>
+                <button onclick="exportResults()">Export Results</button>
+                <button onclick="saveAndReturnToDashboard()">Save & Return to Dashboard</button>
+            </div>
+            
+            <button onclick="returnToMainMenu()">Return to Main Menu</button>
+        </div>
+    </div>
+
+    <script>
+        // Application state
+        let state = {
+            isAdmin: false,
+            sessionId: '',
+            selectedScenarioId: -1,
+            currentScenarioId: -1,
+            currentLevel: 1,
+            maxLevels: 3,
+            selectedCardIndex: -1,
+            notes: [],
+            metrics: {}
+        };
+        
+        // Sample past sessions
+        const pastSessions = [
+            {
+                id: "123456",
+                date: "April 10, 2025",
+                title: "Team Building - Alpha Group",
+                scenarioId: 1,
+                completed: true,
+                metrics: {
+                    selfAwareness: 7.5,
+                    selfManagement: 8.2,
+                    socialAwareness: 6.8,
+                    relationshipSkills: 7.3,
+                    decisionMaking: 8.0,
+                    selfDisclosure: 6.5
+                },
+                notes: "Participant showed good engagement during the activity. Their decision making process was thoughtful and they considered multiple perspectives. They were willing to share personal experiences during the discussion phase, which helped deepen the conversation."
+            },
+            {
+                id: "987654",
+                date: "April 5, 2025",
+                title: "Leadership Development - Executive Team",
+                scenarioId: 3,
+                completed: true,
+                metrics: {
+                    selfAwareness: 8.7,
+                    selfManagement: 9.0,
+                    socialAwareness: 7.8,
+                    relationshipSkills: 8.5,
+                    decisionMaking: 9.2,
+                    selfDisclosure: 7.3
+                },
+                notes: "Executive team displayed high levels of emotional intelligence throughout the assessment. Their approach to conflict resolution was particularly impressive. Some hesitation around self-disclosure in early stages, but this improved as the session progressed."
+            },
+            {
+                id: "456789",
+                date: "March 28, 2025",
+                title: "New Employee Orientation",
+                scenarioId: 2,
+                completed: true,
+                metrics: {
+                    selfAwareness: 6.2,
+                    selfManagement: 6.8,
+                    socialAwareness: 5.9,
+                    relationshipSkills: 6.5,
+                    decisionMaking: 7.1,
+                    selfDisclosure: 5.4
+                },
+                notes: "New employees showed expected levels of social emotional skills. Some struggled with the more complex ethical scenarios. Recommend follow-up training focused on decision making frameworks and building relationship skills in professional contexts."
+            },
+            {
+                id: "654321",
+                date: "March 15, 2025",
+                title: "Conflict Resolution Workshop",
+                scenarioId: 3,
+                completed: true,
+                metrics: {
+                    selfAwareness: 7.1,
+                    selfManagement: 6.5,
+                    socialAwareness: 8.3,
+                    relationshipSkills: 7.8,
+                    decisionMaking: 7.4,
+                    selfDisclosure: 6.9
+                },
+                notes: "Participants demonstrated strong social awareness but had some challenges with self-management during emotionally charged scenarios. The group discussion was particularly insightful, with participants offering thoughtful perspectives on different approaches to conflict."
+            },
+            {
+                id: "135790",
+                date: "March 3, 2025",
+                title: "Customer Service Training",
+                scenarioId: 1,
+                completed: true,
+                metrics: {
+                    selfAwareness: 7.8,
+                    selfManagement: 8.5,
+                    socialAwareness: 9.0,
+                    relationshipSkills: 8.7,
+                    decisionMaking: 7.6,
+                    selfDisclosure: 7.2
+                },
+                notes: "Customer service team showed excellent social awareness and relationship skills. Their ability to recognize emotional cues and respond appropriately was impressive. Some improvement needed in decision-making under pressure scenarios."
+            }
+        ];
+
+        // Sample scenarios data
+        const scenarios = [
+            {
+                id: 1,
+                title: "The Meeting",
+                description: "You're running late for an important meeting. As you approach the building, you see someone drop their papers in the wind.",
+                imagePath: "meeting.jpg",
+                cards: [
+                    { text: "Stop and help them gather their papers", nextScenarioId: 4 },
+                    { text: "Quickly grab one or two papers nearby as you pass", nextScenarioId: 5 },
+                    { text: "Continue to your meeting without stopping", nextScenarioId: 6 }
+                ]
+            },
+            {
+                id: 2,
+                title: "The Wallet",
+                description: "While shopping, you notice someone ahead of you drop their wallet without realizing it.",
+                imagePath: "wallet.jpg",
+                cards: [
+                    { text: "Call out to them immediately", nextScenarioId: 7 },
+                    { text: "Pick up the wallet and run after them", nextScenarioId: 8 },
+                    { text: "Turn the wallet in to customer service", nextScenarioId: 9 }
+                ]
+            },
+            {
+                id: 3,
+                title: "The Argument",
+                description: "You witness two of your friends having a heated argument about a misunderstanding.",
+                imagePath: "argument.jpg",
+                cards: [
+                    { text: "Intervene and try to mediate", nextScenarioId: 10 },
+                    { text: "Wait until later and speak to each privately", nextScenarioId: 11 },
+                    { text: "Stay out of it completely", nextScenarioId: 12 }
+                ]
+            },
+            // Level 2 scenarios (simplified for demo)
+            {
+                id: 4,
+                title: "Late for the Meeting",
+                description: "You helped gather the papers, but now you're even later for your meeting.",
+                imagePath: "meeting_late.jpg",
+                cards: [
+                    { text: "Apologize and explain why you're late", nextScenarioId: 13 },
+                    { text: "Quietly slip into the meeting", nextScenarioId: 14 },
+                    { text: "Call ahead to let them know you'll be late", nextScenarioId: 15 }
+                ]
+            },
+            {
+                id: 5,
+                title: "Quick Help",
+                description: "You grabbed a few papers but couldn't stop completely. The person is still struggling.",
+                imagePath: "partial_help.jpg",
+                cards: [
+                    { text: "Continue to your meeting", nextScenarioId: 16 },
+                    { text: "Go back and help more", nextScenarioId: 17 },
+                    { text: "Ask someone else nearby to help them", nextScenarioId: 18 }
+                ]
+            },
+            {
+                id: 6,
+                title: "The Meeting Reaction",
+                description: "You arrive at your meeting on time, but you keep thinking about the person with the papers.",
+                imagePath: "meeting_reaction.jpg",
+                cards: [
+                    { text: "Focus entirely on the meeting", nextScenarioId: 19 },
+                    { text: "Mention to a colleague after the meeting", nextScenarioId: 20 },
+                    { text: "Look for the person after the meeting", nextScenarioId: 21 }
+                ]
+            },
+            // Add more scenarios for other branches
+            {
+                id: 7,
+                title: "Direct Approach",
+                description: "You call out to the person who dropped their wallet. They turn around, looking surprised.",
+                imagePath: "call_out.jpg",
+                cards: [
+                    { text: "Hand them the wallet saying 'You dropped this'", nextScenarioId: 22 },
+                    { text: "Ask 'Did you drop a wallet?' before showing it", nextScenarioId: 23 },
+                    { text: "Suggest they be more careful with their belongings", nextScenarioId: 24 }
+                ]
+            },
+            {
+                id: 8,
+                title: "The Chase",
+                description: "You pick up the wallet and run after the person. They're moving quickly through the crowd.",
+                imagePath: "chase.jpg",
+                cards: [
+                    { text: "Call out loudly to get their attention", nextScenarioId: 25 },
+                    { text: "Run faster to catch up with them", nextScenarioId: 26 },
+                    { text: "Ask someone ahead to help stop them", nextScenarioId: 27 }
+                ]
+            },
+            {
+                id: 10,
+                title: "The Mediation",
+                description: "You step in to mediate the argument between your friends. Both look at you expectantly.",
+                imagePath: "mediation.jpg",
+                cards: [
+                    { text: "Ask each person to explain their side calmly", nextScenarioId: 28 },
+                    { text: "Suggest they take a break and cool off", nextScenarioId: 29 },
+                    { text: "Point out where each person misunderstood", nextScenarioId: 30 }
+                ]
+            },
+            {
+                id: 11,
+                title: "Private Conversations",
+                description: "You decide to speak with each friend privately later. You meet with the first friend.",
+                imagePath: "private_talk.jpg",
+                cards: [
+                    { text: "Mostly listen to their perspective", nextScenarioId: 31 },
+                    { text: "Explain how the other person might feel", nextScenarioId: 32 },
+                    { text: "Suggest ways to resolve the conflict", nextScenarioId: 33 }
+                ]
+            }
+            // Additional scenarios would be added here in a complete implementation
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate past sessions list
+            populatePastSessions();
+            
+            // Setup card flip behavior
+            setupCardFlip();
+        });
+
+        // Helper functions
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+            
+            // Special case for admin dashboard
+            if (screenId === 'admin-dashboard') {
+                state.isAdmin = true;
+                // Refresh past sessions list
+                populatePastSessions();
+            }
+            
+            // Special case for client connect
+            if (screenId === 'client-connect') {
+                state.isAdmin = false;
+            }
+        }
+        
+        function showDashboardTab(tabId) {
+            // Update tab buttons
+            document.querySelectorAll('.dashboard-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            const activeTab = document.querySelector(`.dashboard-tab[onclick="showDashboardTab('${tabId}')"]`);
+            if (activeTab) activeTab.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.dashboard-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            // If showing past sessions, refresh the list
+            if (tabId === 'past-sessions') {
+                populatePastSessions();
+            }
+        }
+        
+        function populatePastSessions() {
+            const sessionsList = document.getElementById('sessions-list');
+            if (!sessionsList) return;
+            
+            // Clear existing items
+            sessionsList.innerHTML = '';
+            
+            // Add past sessions
+            pastSessions.forEach(session => {
+                const sessionItem = document.createElement('div');
+                sessionItem.className = 'session-item';
+                sessionItem.onclick = () => showSessionDetails(session.id);
+                
+                const sessionHtml = `
+                    <div class="session-title"><strong>${session.title}</strong></div>
+                    <div class="session-date">Session ID: ${session.id} | ${session.date}</div>
+                    <div class="session-detail">Scenario: ${getScenarioTitle(session.scenarioId)} | Status: ${session.completed ? 'Completed' : 'In Progress'}</div>
+                `;
+                
+                sessionItem.innerHTML = sessionHtml;
+                sessionsList.appendChild(sessionItem);
+            });
+        }
+        
+        function getScenarioTitle(scenarioId) {
+            const scenario = scenarios.find(s => s.id === scenarioId);
+            return scenario ? scenario.title : 'Unknown';
+        }
+        
+        function showSessionDetails(sessionId) {
+            const session = pastSessions.find(s => s.id === sessionId);
+            if (!session) return;
+            
+            // Update modal content
+            document.getElementById('modal-session-title').textContent = session.title;
+            document.getElementById('modal-session-id').textContent = `Session ID: ${session.id}`;
+            document.getElementById('modal-session-date').textContent = `Date: ${session.date}`;
+            
+            // Update metrics
+            document.getElementById('modal-self-awareness').textContent = session.metrics.selfAwareness;
+            document.getElementById('modal-self-management').textContent = session.metrics.selfManagement;
+            document.getElementById('modal-social-awareness').textContent = session.metrics.socialAwareness;
+            document.getElementById('modal-relationship-skills').textContent = session.metrics.relationshipSkills;
+            document.getElementById('modal-decision-making').textContent = session.metrics.decisionMaking;
+            document.getElementById('modal-self-disclosure').textContent = session.metrics.selfDisclosure;
+            
+            // Update notes
+            document.getElementById('modal-notes').innerHTML = `<p>${session.notes}</p>`;
+            
+            // Show the modal
+            document.getElementById('session-modal').style.display = 'block';
+        }
+        
+        function closeSessionModal() {
+            document.getElementById('session-modal').style.display = 'none';
+        }
+        
+        // When user clicks outside the modal, close it
+        window.onclick = function(event) {
+            const modal = document.getElementById('session-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Setup card flip behavior
+        function setupCardFlip() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                // Add mouse hover events
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('flipped');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.classList.remove('flipped');
+                    }
+                });
+            });
+        }
+        
+        function selectScenario(scenarioId) {
+            // Clear previous selection
+            document.querySelectorAll('.scenario-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Mark new selection
+            document.getElementById('scenario' + scenarioId).classList.add('selected');
+            
+            // Update state
+            state.selectedScenarioId = scenarioId;
+            
+            // Enable launch button
+            document.getElementById('launch-btn').disabled = false;
+        }
+        
+        function launchSession() {
+            if (state.selectedScenarioId < 0) {
+                alert("Please select a scenario first");
+                return;
+            }
+            
+            // Generate random 6-digit session ID
+            state.sessionId = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            // Display session ID
+            const sessionDisplay = document.getElementById('session-id-display');
+            sessionDisplay.innerHTML = `<div class="session-id">Session ID: ${state.sessionId}</div>
+                                      <p>Share this ID with participants to join this session.</p>`;
+            
+            // Initialize for first level
+            state.currentScenarioId = state.selectedScenarioId;
+            state.currentLevel = 1;
+            
+            // Load the game screen
+            loadScenario(state.currentScenarioId);
+            showScreen('game-screen');
+        }
+        
+        function connectToSession() {
+            const inputField = document.getElementById('session-id-input');
+            const statusMsg = document.getElementById('status-message');
+            
+            if (!inputField.value || inputField.value.length !== 6) {
+                statusMsg.textContent = "Please enter a valid 6-digit session ID";
+                return;
+            }
+            
+            // In a real app, you'd validate this with a server
+            // For demo, we'll just simulate success
+            
+            // Check if ID matches a past session (for demo purposes)
+            const pastSession = pastSessions.find(s => s.id === inputField.value);
+            if (pastSession) {
+                state.sessionId = inputField.value;
+                state.currentScenarioId = pastSession.scenarioId;
+                statusMsg.textContent = "Connected to existing session!";
+                
+                // Show game screen after brief delay
+                setTimeout(() => {
+                    loadScenario(state.currentScenarioId);
+                    showScreen('game-screen');
+                }, 1000);
+                return;
+            }
+            
+            // If it matches the active session from admin
+            if (inputField.value === state.sessionId) {
+                state.sessionId = inputField.value;
+                statusMsg.textContent = "Connected successfully!";
+                
+                // Load same scenario as admin
+                loadScenario(state.currentScenarioId);
+                
+                // Show game screen after brief delay
+                setTimeout(() => {
+                    showScreen('game-screen');
+                }, 1000);
+            } else {
+                // For demo purposes, let's allow any 6-digit number
+                state.sessionId = inputField.value;
+                statusMsg.textContent = "Connected successfully! (Demo mode)";
+                
+                // Default to first scenario for demo
+                state.currentScenarioId = 1;
+                loadScenario(state.currentScenarioId);
+                
+                // Show game screen after brief delay
+                setTimeout(() => {
+                    showScreen('game-screen');
+                }, 1000);
+            }
+        }
+        
+        function loadScenario(scenarioId) {
+            const scenario = scenarios.find(s => s.id === scenarioId);
+            
+            if (!scenario) {
+                console.error("Scenario not found:", scenarioId);
+                return;
+            }
+            
+            // Update UI with scenario data
+            document.getElementById('scenario-title').textContent = scenario.title;
+            document.getElementById('scenario-description').textContent = scenario.description;
+            
+            // Load the actual image using an img tag
+            const scenarioImageContainer = document.getElementById('scenario-image');
+            scenarioImageContainer.innerHTML = `<img src="${scenario.imagePath}" alt="${scenario.title}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            
+            // Reset all cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('flipped');
+                card.classList.remove('selected');
+            });
+            
+            // Set up cards content
+            for (let i = 0; i < scenario.cards.length; i++) {
+                const cardElement = document.getElementById('card' + (i+1));
+                if (cardElement) {
+                    const cardBackElement = cardElement.querySelector('.card-back');
+                    if (cardBackElement) {
+                        cardBackElement.textContent = scenario.cards[i].text;
+                    }
+                }
+            }
+            
+            // Reset selection
+            state.selectedCardIndex = -1;
+            document.getElementById('continue-btn').disabled = true;
+            
+            // Setup card flip behavior again (in case DOM has changed)
+            setupCardFlip();
+        }
+        
+        function selectCard(cardIndex) {
+            // Get current scenario
+            const scenario = scenarios.find(s => s.id === state.currentScenarioId);
+            if (!scenario || cardIndex >= scenario.cards.length) return;
+            
+            // Clear previous selection
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('selected');
+                // Only keep flipped state for the selected card
+                if (!card.id.endsWith(cardIndex + 1)) {
+                    card.classList.remove('flipped');
+                }
+            });
+            
+            // Mark new selection
+            const selectedCard = document.getElementById('card' + (cardIndex+1));
+            selectedCard.classList.add('selected');
+            selectedCard.classList.add('flipped'); // Keep it flipped when selected
+            
+            // Update state
+            state.selectedCardIndex = cardIndex;
+            
+            // Enable continue button
+            document.getElementById('continue-btn').disabled = false;
+        }
+        
+        function continueToDiscussion() {
+            if (state.selectedCardIndex < 0) return;
+            
+            // Get selected option text for display
+            const scenario = scenarios.find(s => s.id === state.currentScenarioId);
+            const selectedOption = scenario.cards[state.selectedCardIndex].text;
+            
+            // Update discussion screen
+            document.getElementById('discussion-scenario-title').textContent = scenario.title;
+            document.getElementById('selected-option').textContent = `Selected option: ${selectedOption}`;
+            
+            // Show appropriate controls based on role
+            document.getElementById('admin-controls').style.display = state.isAdmin ? 'block' : 'none';
+            document.getElementById('client-controls').style.display = state.isAdmin ? 'none' : 'block';
+            
+            // Show discussion screen
+            showScreen('discussion-screen');
+        }
+        
+        function updateSliderValue(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const valueDisplay = document.getElementById(sliderId + '-value');
+            valueDisplay.textContent = slider.value;
+        }
+        
+        function proceedToNextLevel() {
+            // Save notes and metrics for current level
+            saveCurrentLevelData();
+            
+            // Get next scenario based on selected card
+            const currentScenario = scenarios.find(s => s.id === state.currentScenarioId);
+            if (!currentScenario) return;
+            
+            const nextScenarioId = currentScenario.cards[state.selectedCardIndex].nextScenarioId;
+            
+            // Increment level
+            state.currentLevel++;
+            
+            // Check if we've reached max levels OR the next scenario doesn't exist
+            const nextScenario = scenarios.find(s => s.id === nextScenarioId);
+            if (state.currentLevel > state.maxLevels || !nextScenario) {
+                // Assessment complete or we don't have that scenario defined
+                showResults();
+                return;
+            }
+            
+            // Load next scenario
+            state.currentScenarioId = nextScenarioId;
+            loadScenario(state.currentScenarioId);
+            showScreen('game-screen');
+        }
+        
+        function saveCurrentLevelData() {
+            if (!state.isAdmin) return;
+            
+            // Get notes from textarea
+            const notes = document.getElementById('discussion-notes').value;
+            
+            // Get metrics from sliders
+            const metrics = {
+                selfAwareness: parseInt(document.getElementById('self-awareness').value),
+                selfManagement: parseInt(document.getElementById('self-management').value),
+                socialAwareness: parseInt(document.getElementById('social-awareness').value),
+                relationshipSkills: parseInt(document.getElementById('relationship-skills').value),
+                decisionMaking: parseInt(document.getElementById('decision-making').value),
+                selfDisclosure: parseInt(document.getElementById('self-disclosure').value)
+            };
+            
+            // Save to state
+            state.notes.push({
+                level: state.currentLevel,
+                scenarioId: state.currentScenarioId,
+                text: notes
+            });
+            
+            state.metrics[state.currentLevel] = metrics;
+            
+            console.log("Saved data for level " + state.currentLevel, {notes, metrics});
+        }
+        
+        function clientReady() {
+            // In a real app, this would notify the admin
+            alert("Waiting for facilitator to proceed to the next level...");
+        }
+        
+        function showResults() {
+            // Calculate averages for metrics
+            let metricsHtml = '';
+            let notesHtml = '';
+            
+            if (state.isAdmin) {
+                // Process metrics
+                if (Object.keys(state.metrics).length > 0) {
+                    let totalMetrics = {
+                        selfAwareness: 0,
+                        selfManagement: 0,
+                        socialAwareness: 0,
+                        relationshipSkills: 0,
+                        decisionMaking: 0,
+                        selfDisclosure: 0
+                    };
+                    
+                    // Sum up metrics from all levels
+                    for (const level in state.metrics) {
+                        const levelMetrics = state.metrics[level];
+                        totalMetrics.selfAwareness += levelMetrics.selfAwareness;
+                        totalMetrics.selfManagement += levelMetrics.selfManagement;
+                        totalMetrics.socialAwareness += levelMetrics.socialAwareness;
+                        totalMetrics.relationshipSkills += levelMetrics.relationshipSkills;
+                        totalMetrics.decisionMaking += levelMetrics.decisionMaking;
+                        totalMetrics.selfDisclosure += levelMetrics.selfDisclosure;
+                    }
+                    
+                    // Calculate averages
+                    const levelCount = Object.keys(state.metrics).length;
+                    const avgMetrics = {
+                        selfAwareness: (totalMetrics.selfAwareness / levelCount).toFixed(1),
+                        selfManagement: (totalMetrics.selfManagement / levelCount).toFixed(1),
+                        socialAwareness: (totalMetrics.socialAwareness / levelCount).toFixed(1),
+                        relationshipSkills: (totalMetrics.relationshipSkills / levelCount).toFixed(1),
+                        decisionMaking: (totalMetrics.decisionMaking / levelCount).toFixed(1),
+                        selfDisclosure: (totalMetrics.selfDisclosure / levelCount).toFixed(1)
+                    };
+                    
+                    // Generate HTML
+                    metricsHtml = `
+                        <p><strong>Self-awareness:</strong> ${avgMetrics.selfAwareness}/10</p>
+                        <p><strong>Self-management:</strong> ${avgMetrics.selfManagement}/10</p>
+                        <p><strong>Social awareness:</strong> ${avgMetrics.socialAwareness}/10</p>
+                        <p><strong>Relationship skills:</strong> ${avgMetrics.relationshipSkills}/10</p>
+                        <p><strong>Responsible decision making:</strong> ${avgMetrics.decisionMaking}/10</p>
+                        <p><strong>Self-disclosure:</strong> ${avgMetrics.selfDisclosure}/10</p>
+                    `;
+                }
+                
+                // Process notes
+                if (state.notes.length > 0) {
+                    notesHtml = '<ul>';
+                    state.notes.forEach(note => {
+                        const scenario = scenarios.find(s => s.id === note.scenarioId);
+                        notesHtml += `<li><strong>Level ${note.level} (${scenario ? scenario.title : 'Unknown'}):</strong> ${note.text}</li>`;
+                    });
+                    notesHtml += '</ul>';
+                }
+                
+                // Update results display
+                document.getElementById('metrics-summary').innerHTML = metricsHtml;
+                document.getElementById('notes-summary').innerHTML = notesHtml;
+            }
+            
+            // Show appropriate controls
+            document.getElementById('admin-results').style.display = state.isAdmin ? 'block' : 'none';
+            
+            // Show results screen
+            showScreen('results-screen');
+        }
+        
+        function saveResults() {
+            // In a real app, this would save to a server or database
+            saveCurrentLevelData();
+            alert("Results saved successfully!");
+        }
+        
+        function saveAndReturnToDashboard() {
+            // Save current results
+            saveCurrentLevelData();
+            
+            // In a real app, this would add the new session to the database
+            // For demo, let's add it to our past sessions array
+            if (state.isAdmin) {
+                // Calculate averages
+                let totalMetrics = {
+                    selfAwareness: 0,
+                    selfManagement: 0,
+                    socialAwareness: 0,
+                    relationshipSkills: 0,
+                    decisionMaking: 0,
+                    selfDisclosure: 0
+                };
+                
+                for (const level in state.metrics) {
+                    const levelMetrics = state.metrics[level];
+                    totalMetrics.selfAwareness += levelMetrics.selfAwareness;
+                    totalMetrics.selfManagement += levelMetrics.selfManagement;
+                    totalMetrics.socialAwareness += levelMetrics.socialAwareness;
+                    totalMetrics.relationshipSkills += levelMetrics.relationshipSkills;
+                    totalMetrics.decisionMaking += levelMetrics.decisionMaking;
+                    totalMetrics.selfDisclosure += levelMetrics.selfDisclosure;
+                }
+                
+                const levelCount = Object.keys(state.metrics).length;
+                const avgMetrics = {
+                    selfAwareness: parseFloat((totalMetrics.selfAwareness / levelCount).toFixed(1)),
+                    selfManagement: parseFloat((totalMetrics.selfManagement / levelCount).toFixed(1)),
+                    socialAwareness: parseFloat((totalMetrics.socialAwareness / levelCount).toFixed(1)),
+                    relationshipSkills: parseFloat((totalMetrics.relationshipSkills / levelCount).toFixed(1)),
+                    decisionMaking: parseFloat((totalMetrics.decisionMaking / levelCount).toFixed(1)),
+                    selfDisclosure: parseFloat((totalMetrics.selfDisclosure / levelCount).toFixed(1))
+                };
+                
+                // Combine all notes into one string
+                let allNotes = "";
+                state.notes.forEach(note => {
+                    const scenario = scenarios.find(s => s.id === note.scenarioId);
+                    allNotes += `Level ${note.level} (${scenario ? scenario.title : 'Unknown'}): ${note.text}\n\n`;
+                });
+                
+                // Add to past sessions
+                pastSessions.unshift({
+                    id: state.sessionId,
+                    date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                    title: "New Assessment Session",
+                    scenarioId: state.selectedScenarioId,
+                    completed: true,
+                    metrics: avgMetrics,
+                    notes: allNotes.trim()
+                });
+                
+                // Return to dashboard and show past sessions
+                showScreen('admin-dashboard');
+                showDashboardTab('past-sessions');
+            }
+        }
+        
+        function exportResults() {
+            // In a real app, this would generate a PDF or CSV
+            alert("Results would be exported to a file in a real application.");
+            
+            // Generate simple text export for demo
+            let exportText = "SMART STEPS ASSESSMENT RESULTS\n\n";
+            exportText += `Session ID: ${state.sessionId}\n`;
+            exportText += `Date: ${new Date().toLocaleDateString()}\n\n`;
+            
+            // Add metrics
+            exportText += "METRICS SUMMARY:\n";
+            for (const level in state.metrics) {
+                const m = state.metrics[level];
+                exportText += `\nLevel ${level}:\n`;
+                exportText += `Self-awareness: ${m.selfAwareness}/10\n`;
+                exportText += `Self-management: ${m.selfManagement}/10\n`;
+                exportText += `Social awareness: ${m.socialAwareness}/10\n`;
+                exportText += `Relationship skills: ${m.relationshipSkills}/10\n`;
+                exportText += `Decision making: ${m.decisionMaking}/10\n`;
+                exportText += `Self-disclosure: ${m.selfDisclosure}/10\n`;
+            }
+            
+            // Add notes
+            exportText += "\nNOTES:\n";
+            state.notes.forEach(note => {
+                const scenario = scenarios.find(s => s.id === note.scenarioId);
+                exportText += `\nLevel ${note.level} (${scenario ? scenario.title : 'Unknown'}):\n`;
+                exportText += `${note.text}\n`;
+            });
+            
+            console.log(exportText);
+            
+            // In a browser environment, we could offer a download
+            // This is simplified for the demo
+        }
+        
+        function returnToMainMenu() {
+            // Reset application state
+            state = {
+                isAdmin: false,
+                sessionId: '',
+                selectedScenarioId: -1,
+                currentScenarioId: -1,
+                currentLevel: 1,
+                maxLevels: 3,
+                selectedCardIndex: -1,
+                notes: [],
+                metrics: {}
+            };
+            
+            // Return to main menu
+            showScreen('main-menu');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+monitoring:
+  interval: 60  # seconds
+  log_retention_days: 30
+  alert_thresholds:
+    cpu_percent: 80
+    memory_percent: 80
+    disk_percent: 90
+    response_time_ms: 2000
+    error_rate_percent: 5
+
+api:
+  base_url: "http://api:9500"  # Using the service name from docker-compose
+  timeout: 5  # seconds
+  health_endpoint: "/api/v1/admin/health"
+
+alerts:
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: "alerts@example.com"
+    password: "your-smtp-password"
+    from_email: "alerts@example.com"
+    to_emails:
+      - "admin@example.com"
+      - "oncall@example.com"
+  sms:
+    enabled: false
+    provider: "twilio"
+    account_sid: "your-account-sid"
+    auth_token: "your-auth-token"
+    from_number: "+1234567890"
+    to_numbers:
+      - "+1987654321"
+
+maintenance:
+  log_cleanup:
+    enabled: true
+    schedule: "0 0 * * *"  # cron syntax: midnight daily
+    max_age_days: 30
+  db_vacuum:
+    enabled: true
+    schedule: "0 1 * * 0"  # cron syntax: 1:00 AM on Sundays
+  memory_cache_clear:
+    enabled: true
+    schedule: "0 */6 * * *"  # cron syntax: every 6 hours

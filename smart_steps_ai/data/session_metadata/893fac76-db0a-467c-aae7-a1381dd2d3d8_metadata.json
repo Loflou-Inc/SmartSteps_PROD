@@ -1,0 +1,13 @@
+{
+  "id": "893fac76-db0a-467c-aae7-a1381dd2d3d8",
+  "client_name": "API Test Client",
+  "session_type": "initial",
+  "persona_name": "professional_therapist",
+  "created_at": "2025-05-10T13:44:00.900693",
+  "updated_at": "2025-05-10T13:44:01.424794",
+  "state": "active",
+  "messages_count": 2,
+  "duration_seconds": 0,
+  "tags": [],
+  "custom_fields": {}
+}

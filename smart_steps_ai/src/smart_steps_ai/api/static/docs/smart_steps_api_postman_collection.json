@@ -1,0 +1,700 @@
+{
+	"info": {
+		"_postman_id": "b5a7e3a9-4f2a-4e7a-9b8c-3b4b4b4b4b4b",
+		"name": "Smart Steps AI API",
+		"description": "Collection for Smart Steps AI Professional Persona API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"access_token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"token"
+							]
+						},
+						"description": "Authenticate and get an access token."
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"me"
+							]
+						},
+						"description": "Get information about the currently authenticated user."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Logout and invalidate the current token."
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication endpoints for getting access tokens and managing user sessions."
+		},
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "List Personas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "therapist",
+									"description": "Filter personas by role",
+									"disabled": true
+								},
+								{
+									"key": "expertise",
+									"value": "trauma",
+									"description": "Filter personas by expertise area",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "50",
+									"description": "Maximum number of personas to return",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of personas to skip",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all available professional personas with optional filtering."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Persona",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"persona_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test-therapist\",\n    \"display_name\": \"Test Therapist\",\n    \"version\": \"1.0.0\",\n    \"description\": \"A test therapist persona for API testing\",\n    \"system_prompt\": \"You are a professional therapist helping clients with their mental health.\",\n    \"personality_traits\": {\n        \"empathy\": 8,\n        \"analytical\": 7,\n        \"patience\": 9,\n        \"directness\": 5,\n        \"formality\": 6,\n        \"warmth\": 8,\n        \"curiosity\": 7,\n        \"confidence\": 8\n    },\n    \"expertise_areas\": [\"anxiety\", \"depression\", \"trauma\", \"CBT\"],\n    \"conversation_style\": {\n        \"greeting_format\": \"Hello {{client_name}}. How are you feeling today?\",\n        \"question_frequency\": \"medium\",\n        \"session_structure\": [\"introduction\", \"exploration\", \"intervention\", \"closure\"],\n        \"typical_phrases\": [\"Tell me more about that\", \"How did that make you feel?\", \"I hear what you're saying\"]\n    },\n    \"rules\": [\"Maintain professional boundaries\", \"Practice active listening\", \"Validate client emotions\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas"
+							]
+						},
+						"description": "Create a new professional persona."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas/{{persona_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"{{persona_id}}"
+							]
+						},
+						"description": "Get detailed information about a specific professional persona."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Persona",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"display_name\": \"Updated Test Therapist\",\n    \"description\": \"An updated test therapist persona for API testing\",\n    \"expertise\": [\"anxiety\", \"depression\", \"trauma\", \"CBT\", \"mindfulness\"],\n    \"traits\": {\n        \"empathy\": 9,\n        \"analytical\": 7,\n        \"patience\": 9,\n        \"directness\": 5,\n        \"formality\": 6,\n        \"warmth\": 9,\n        \"curiosity\": 7,\n        \"confidence\": 8\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas/{{persona_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"{{persona_id}}"
+							]
+						},
+						"description": "Update an existing professional persona."
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas/{{persona_id}}/validate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"{{persona_id}}",
+								"validate"
+							]
+						},
+						"description": "Validate a professional persona and return any issues."
+					},
+					"response": []
+				},
+				{
+					"name": "Export Persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas/{{persona_id}}/export",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"{{persona_id}}",
+								"export"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json",
+									"description": "Export format (json)",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Export a professional persona to a JSON file."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Persona",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/personas/{{persona_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"{{persona_id}}"
+							]
+						},
+						"description": "Delete a professional persona."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing professional personas."
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "List Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/sessions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "client-001",
+									"description": "Filter sessions by client ID",
+									"disabled": true
+								},
+								{
+									"key": "persona_id",
+									"value": "{{persona_id}}",
+									"description": "Filter sessions by persona ID",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "50",
+									"description": "Maximum number of sessions to return",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of sessions to skip",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all therapy sessions with optional filtering."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"session_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test Session\",\n    \"client_id\": \"client-001\",\n    \"persona_id\": \"{{persona_id}}\",\n    \"provider_id\": null,\n    \"metadata\": {\n        \"purpose\": \"API testing\",\n        \"session_type\": \"initial\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/sessions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions"
+							]
+						},
+						"description": "Create a new therapy session."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/sessions/{{session_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions",
+								"{{session_id}}"
+							]
+						},
+						"description": "Get detailed information about a specific therapy session."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Session",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Test Session\",\n    \"status\": \"active\",\n    \"metadata\": {\n        \"purpose\": \"API testing\",\n        \"session_type\": \"initial\",\n        \"updated\": true\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/sessions/{{session_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions",
+								"{{session_id}}"
+							]
+						},
+						"description": "Update an existing therapy session."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/sessions/{{session_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sessions",
+								"{{session_id}}"
+							]
+						},
+						"description": "Delete a therapy session."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing therapy sessions."
+		},
+		{
+			"name": "Conversations",
+			"item": [
+				{
+					"name": "Send Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Hello, I've been feeling anxious lately. Can you help me?\",\n    \"client_id\": \"client-001\",\n    \"metadata\": {\n        \"source\": \"web\",\n        \"device\": \"desktop\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/conversations/{{session_id}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"conversations",
+								"{{session_id}}",
+								"messages"
+							]
+						},
+						"description": "Send a message in a therapy session and receive an AI response."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conversation History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/conversations/{{session_id}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"conversations",
+								"{{session_id}}",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"description": "Maximum number of messages to return",
+									"disabled": true
+								},
+								{
+									"key": "before",
+									"value": "message-id",
+									"description": "Only return messages before this message ID",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get conversation history for a therapy session."
+					},
+					"response": []
+				},
+				{
+					"name": "Export Conversation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/conversations/{{session_id}}/export",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"conversations",
+								"{{session_id}}",
+								"export"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json",
+									"description": "Export format (json, markdown, text, html)",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Export conversation in specified format."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing conversations."
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Analyze Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/analysis/sessions/{{session_id}}/analyze",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"sessions",
+								"{{session_id}}",
+								"analyze"
+							]
+						},
+						"description": "Generate insights and analysis from a therapy session."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Analysis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/analysis/sessions/{{session_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"analysis",
+								"sessions",
+								"{{session_id}}"
+							]
+						},
+						"description": "Get analysis results for a therapy session."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for analyzing therapy sessions."
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Check if the API server is running."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}

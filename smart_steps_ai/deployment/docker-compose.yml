@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  # Smart Steps API service
+  api:
+    build:
+      context: ..
+      dockerfile: ./deployment/Dockerfile
+    image: smart_steps_ai:latest
+    container_name: smart_steps_api
+    restart: unless-stopped
+    ports:
+      - "9500:9500"
+    volumes:
+      - smart_steps_data:/app/data
+      - smart_steps_logs:/app/logs
+      - smart_steps_backup:/app/backup
+      - ./config/production.env:/app/.env
+    environment:
+      - ENVIRONMENT=production
+      - API_SECRET_KEY=${API_SECRET_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9500/api/v1/admin/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    networks:
+      - smart_steps_network
+
+  # Monitoring service
+  monitoring:
+    build:
+      context: ..
+      dockerfile: ./deployment/Dockerfile.monitoring
+    image: smart_steps_monitoring:latest
+    container_name: smart_steps_monitoring
+    restart: unless-stopped
+    volumes:
+      - smart_steps_logs:/app/logs
+      - ./config/monitoring.yaml:/app/config/monitoring.yaml
+    depends_on:
+      - api
+    command: ["python", "deployment/monitoring_system.py", "start"]
+    networks:
+      - smart_steps_network
+
+  # Nginx proxy for API (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: smart_steps_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - smart_steps_logs:/var/log/nginx
+    depends_on:
+      - api
+    networks:
+      - smart_steps_network
+
+volumes:
+  smart_steps_data:
+  smart_steps_logs:
+  smart_steps_backup:
+
+networks:
+  smart_steps_network:
+    driver: bridge

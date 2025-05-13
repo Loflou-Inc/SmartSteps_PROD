@@ -1,0 +1,130 @@
+University of Chicago Undergraduate Psychology
+Curriculum
+Year 1 (Freshman)
+• Fundamentals of Psychology (PSYC 20000) – Survey course covering core domains 1 . Introduces
+brain–behavior basics (sensation, perception, cognition, learning, motivation) and classic
+experiments 1 . Students often use an introductory text (e.g. OpenStax Psychology) and learn that
+all behavior is rooted in neural processes (sensation, memory, emotion, etc. are brain-based 2 ).
+This course builds a conceptual foundation for later courses in cognition and neuroscience.
+• Calculus I & II (MATH 13100/13200) – Required general-education sequence. Provides mathematical
+foundations (limits, derivatives, integrals) and reasoning skills needed for statistical analysis 3 .
+Mastery of calculus allows students to understand probability and change, which are essential for
+PSYC 20250 (statistics) in later years 3 .
+• Social Psychology (PSYC 20600) – Often taken early as a breadth requirement. Examines how
+individuals think about, feel about, and relate to others 4 5 . Topics include social perception,
+attitudes and persuasion, conformity, group processes, and political psychology 5 . Readings
+typically include classic and modern social psychology studies, training students in causal inference
+and critical analysis (skills that complement early statistics training).
+• Liberal Arts Integration: First-year students also complete the College’s Core curriculum (Great
+Books, writing, and quantitative reasoning). Courses in philosophy, ethics, and humanities sharpen
+critical thinking and argumentative skills, underpinning later work on research ethics and theoretical
+models (for example, PSYC 20200 will explicitly address IRB and ethical standards 6 ).
+Year 2 (Sophomore)
+• Statistical Concepts (PSYC 20250, formerly 20100) – Introductory statistics for psychology 7 .
+Covers descriptive statistics, probability, sampling and estimation, and inferential tests (t‑tests, chi-
+square, ANOVA) 7 8 . Key texts might include Agresti & Finlay or OpenIntro materials. Students
+learn to compute and interpret p-values and confidence intervals, laying groundwork for all
+empirical studies. (It is recommended students complete both calculus quarters before or alongside
+this course 3 .)
+• Research Methods (PSYC 20200) – Intensive methods and design course 6 . Teaches how to
+formulate hypotheses, design experiments or surveys, collect data, and analyze results 6 9 .
+Students complete case studies and draft IRB protocols, emphasizing quantitative and qualitative
+techniques and ethical issues 6 . Core concepts include validity, reliability, experimental control,
+and writing grant-style proposals (the course culminates in a mock research proposal) 9 . This
+course integrates formal research training with previous statistics knowledge.
+• Biological Psychology (PSYC 20300) – Introduction to neuroscience and behavior 10 . Covers
+anatomy, physiology and chemistry of the brain and nervous system, and how these change with
+experience 11 . Students study neural mechanisms of perception, attention, action, motivation, and
+emotion 11 . Typical readings include chapters from Pinel’s Biopsychology or similar texts, and papers
+1
+
+on neural communication. This course often runs concurrently with an Introductory Biology or
+Foundations of Neuroscience course (e.g. PSYC 24450 12 ) to integrate biological sciences with
+behavior.
+• Developmental Psychology (PSYC 20500) – Survey of cognitive and social development in childhood
+13 . Focuses on infancy through early childhood, covering major theories (Piaget, Vygotsky, etc.) and
+empirical findings about how children learn number concepts, moral reasoning, language, and social
+behavior 13 . Readings include developmental texts (e.g. Berk) and classic studies (e.g. on
+attachment, theory of mind). Students learn that early environments and experience shape later
+cognition and behavior, a theme that connects biology, cognition, and education.
+• Broad Requirements: By the end of year 2, majors complete the two-quarter calculus requirement
+and usually finish the stats/methods sequence. Students may also begin electives like computer
+programming (e.g. PSYC 23030: Python for Behavioral Sciences), which supports data analysis
+skills, and continue core humanities courses (e.g. critical writing seminars, ethical reasoning) that
+reinforce the ability to critique research.
+Year 3 (Junior)
+• Cognitive Psychology (PSYC 20400) – Fundamental course on human thinking 14 . Views the brain
+as an information-processing system, covering categorization, attention, memory, language, and
+decision-making 14 15 . Students explore classic models of memory (short-term, long-term,
+working memory), problem-solving strategies, and biases. Readings often come from cognitive
+textbooks (e.g. Sternberg, Goldstein) and research articles. By now students can apply research
+methods to cognitive experiments and interpret findings statistically.
+• Remaining Core Area (fourth breadth course) – If not already done, students take one more of the
+five core areas (Biological, Social, Developmental, Cognitive, or Sensation/Perception) 16 . For
+example, a junior might enroll in PSYC 20700 (Sensation & Perception) if still needed (see below) or
+re-take any if prerequisites are now met. The goal is to complete four breadth courses by end of
+junior year.
+• Advanced Psychology Electives: The six required electives are typically taken in the last two years.
+In junior year students might choose courses such as:
+• PSYC 24450 (Foundations of Neuroscience) – Introduces neural cell anatomy, sensory/motor
+pathways, and cognition from a neuroscience perspective 12 .
+• PSYC 23800 (Learning & Memory) – Advanced seminar on theories of learning (classical/operant
+conditioning, statistical learning) and memory (implicit vs. explicit, models of memory systems).
+• Area seminars (e.g. PSYC 25500 Cognitive Aging, PSYC 25101 Decision Making) – Specialized
+topics in cognition or social behavior.
+Electives deepen knowledge of subfields (e.g. psychopathology, communication, computational
+models) and often include primary research articles.
+• Research Experience: Juniors are strongly encouraged to conduct independent research 17 . Many
+take PSYC 29700/29200 (Undergrad Research/Reading) or enroll in lab courses, gaining hands-on
+methodology skills. In parallel they may take advanced statistics (e.g. regression, longitudinal
+methods) to handle real data. Research participation integrates all prior learning (design, ethics,
+analysis) and often leads to an honors project.
+2
+
+Year 4 (Senior)
+• Senior Seminar / Honors Thesis (PSYC 29800) – Honors-track students take the senior seminar in
+Winter of their fourth year 18 . This course focuses on formulating, conducting, and writing up an
+original research project. Students refine hypotheses, apply advanced statistical methods, and
+prepare a written thesis under a faculty advisor. Senior spring features an Honors Day presentation
+of the thesis findings 18 . Non-honors students may instead take an independent study or capstone
+course, but all seniors integrate their cumulative knowledge through a major project.
+• Capstone Electives: Remaining electives are taken. Examples include:
+• PSYC 23800: Learning & Memory (if not already taken), covering models like dual-store memory
+and neural substrates of learning.
+• PSYC 23660: The Disordered Mind – Seminar on classification and causation of mental disorders
+19 . Integrates biological, psychological, and social perspectives on disorders (e.g. depression,
+schizophrenia, developmental disorders) 19 .
+• Electives in any area (e.g. social cognition, applied psychology, ethics in science). These advanced
+courses involve reading cutting-edge research and synthesizing models from previous courses.
+• Integration of Knowledge: By senior year students have a clear, detailed “mental model” of
+psychology. They can trace a behavior from sensory input (Sensation/Perception) through cognitive
+processing (Cognitive Psych) to social influence (Social Psych), all measured with sound methods and
+statistics. Their senior work explicitly combines earlier tools: designing experiments (Methods),
+analyzing data (Statistics), and situating results in broader ethical and theoretical context
+(Humanities). The result is a cohesive foundation for a future psychologist or researcher.
+Sources: The UChicago psychology major requires research methods and statistics by year 3, four of five
+core-area courses (20300–20700), and six additional electives 20 21 . Course descriptions and learning
+goals are drawn from the department catalog and standard texts 21 22 . Core concepts (e.g. neural bases
+of behavior 2 , cognitive processing 15 , social influence 4 ) are documented in contemporary
+psychology literature. All citations refer to UChicago course requirements and authoritative psychology
+sources.
+1 5 Psychology < University of Chicago Catalog
+6 7 https://www.classes.cs.uchicago.edu/archive/2015/winter/12200-1/new.collegecatalog.uchicago.edu/thecollege/
+10 11 psychology/index.html
+13 14
+18 21
+22
+2 2.1 Biological Psychology – Introduction to Psychology – 1st Canadian Edition
+https://opentextbc.ca/introductiontopsychology/chapter/2-1-biological-psychology-structuralism-and-functionalism/
+3 8 9 Courses | Department of Psychology
+12 19 https://psychology.uchicago.edu/undergraduate-major/courses
+4 12.1 What Is Social Psychology? - Psychology 2e | OpenStax
+https://openstax.org/books/psychology-2e/pages/12-1-what-is-social-psychology
+15 7.1 What Is Cognition? - Psychology 2e | OpenStax
+https://openstax.org/books/psychology-2e/pages/7-1-what-is-cognition
+3
+
+16 17 20 Requirements | Department of Psychology
+https://psychology.uchicago.edu/undergraduate-major/requirements
+4
+

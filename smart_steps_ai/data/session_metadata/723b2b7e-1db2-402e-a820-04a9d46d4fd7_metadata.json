@@ -1,0 +1,13 @@
+{
+  "id": "723b2b7e-1db2-402e-a820-04a9d46d4fd7",
+  "client_name": "Test Client",
+  "session_type": "standard",
+  "persona_name": "behavioral_analyst",
+  "created_at": "2025-05-13T07:18:49.785883",
+  "updated_at": "2025-05-13T07:18:49.810232",
+  "state": "active",
+  "messages_count": 2,
+  "duration_seconds": 0,
+  "tags": [],
+  "custom_fields": {}
+}

@@ -1,0 +1,137 @@
+{
+  "description": "Smart Steps AI API Load Test Configuration",
+  "tests": [
+    {
+      "name": "List Personas",
+      "endpoint": "/api/v1/personas",
+      "method": "GET",
+      "concurrent_users": 10,
+      "requests_per_user": 5,
+      "ramp_up_time": 2
+    },
+    {
+      "name": "Get Persona Details",
+      "endpoint": "/api/v1/personas/cbt_therapist",
+      "method": "GET",
+      "concurrent_users": 10,
+      "requests_per_user": 5,
+      "ramp_up_time": 2
+    },
+    {
+      "name": "List Sessions",
+      "endpoint": "/api/v1/sessions",
+      "method": "GET",
+      "concurrent_users": 20,
+      "requests_per_user": 5,
+      "ramp_up_time": 3
+    },
+    {
+      "name": "Create Session",
+      "endpoint": "/api/v1/sessions",
+      "method": "POST",
+      "data": {
+        "title": "Load Test Session",
+        "client_id": "load_test_client",
+        "persona_id": "cbt_therapist",
+        "metadata": {
+          "test": true,
+          "source": "load_test"
+        }
+      },
+      "concurrent_users": 5,
+      "requests_per_user": 2,
+      "ramp_up_time": 1
+    },
+    {
+      "name": "Send Message",
+      "endpoint": "/api/v1/conversations/{session_id}/messages",
+      "method": "POST",
+      "data": {
+        "content": "Hello, how are you today?",
+        "client_id": "load_test_client",
+        "metadata": {
+          "test": true,
+          "source": "load_test"
+        }
+      },
+      "concurrent_users": 5,
+      "requests_per_user": 3,
+      "ramp_up_time": 2
+    },
+    {
+      "name": "Get Conversation History",
+      "endpoint": "/api/v1/conversations/{session_id}/messages",
+      "method": "GET",
+      "query_params": {
+        "limit": "50"
+      },
+      "concurrent_users": 10,
+      "requests_per_user": 5,
+      "ramp_up_time": 2
+    },
+    {
+      "name": "Analyze Session",
+      "endpoint": "/api/v1/analysis/sessions/{session_id}",
+      "method": "GET",
+      "query_params": {
+        "depth": "standard"
+      },
+      "concurrent_users": 3,
+      "requests_per_user": 2,
+      "ramp_up_time": 1
+    },
+    {
+      "name": "Get Client Insights",
+      "endpoint": "/api/v1/analysis/insights/client/load_test_client",
+      "method": "GET",
+      "query_params": {
+        "timeframe": "all",
+        "limit": "20"
+      },
+      "concurrent_users": 5,
+      "requests_per_user": 2,
+      "ramp_up_time": 1
+    },
+    {
+      "name": "Generate Client Report",
+      "endpoint": "/api/v1/analysis/reports/client/load_test_client",
+      "method": "GET",
+      "query_params": {
+        "format": "json",
+        "timeframe": "all"
+      },
+      "concurrent_users": 2,
+      "requests_per_user": 2,
+      "ramp_up_time": 1
+    },
+    {
+      "name": "Process Sync Batch",
+      "endpoint": "/api/v1/sync/batch",
+      "method": "POST",
+      "data": {
+        "records": [
+          {
+            "entity_type": "session",
+            "entity_id": "load_test_session",
+            "operation": "update",
+            "data": {
+              "title": "Updated Load Test Session",
+              "metadata": {
+                "test": true,
+                "source": "load_test",
+                "updated": true
+              }
+            },
+            "client_id": "load_test_client",
+            "version": 1
+          }
+        ],
+        "client_id": "load_test_client",
+        "force_sync": false
+      },
+      "concurrent_users": 5,
+      "requests_per_user": 2,
+      "ramp_up_time": 1
+    }
+  ]
+}

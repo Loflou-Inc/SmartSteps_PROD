@@ -1,0 +1,145 @@
+Simulating an APA-Accredited CMHC Psychology
+Internship in NW Ohio
+Figure: In a typical rural CMHC therapy session, interns balance active listening with careful note-taking (photo
+from a therapy setting). Internships are full-time (usually 2000–2080 hours/year, ~40–42.5 hr/week) 1 . Ohio
+law requires at least 25% of placement time in face-to-face client contact and 1 hour of individual
+supervision per 20 hours worked 2 . In practice my weekly schedule is roughly:
+• Direct clinical services (~15–20 hrs/week): Individual and group therapy (treating depression,
+anxiety, PTSD, etc.), about 75% of training time 3 .
+• Psychological assessment (~3–5 hrs): Administering/intake testing (cognitive or personality
+measures) and report writing for complex cases.
+• Supervision (~3–4 hrs): Typically 2 hrs individual (meeting Ohio’s 1:20 rule 2 ) plus 1–2 hrs group
+supervision/case conference 2 4 . Supervisors are licensed psychologists (PhD/PsyD) on site 5 .
+• Didactics & seminars (~1–2 hrs): Weekly staff meetings and workshops (e.g. ethics, evidence-based
+treatments). Interns “learn to apply… professional ethics and standards” through these cases and
+seminars 6 .
+• Case management & admin (~5–10 hrs): Progress notes, care coordination (schools, hospitals),
+paperwork and client follow-ups.
+• Licensure prep (~1–2 hrs): Self-study or group review for the national EPPP and Ohio’s
+jurisprudence exam (covering ethics and law).
+These components align with APA and state training rules: for example, Ohio mandates additional group/
+case-conference time (≥1 hr/week beyond individual supervision) 7 and at least one licensed psychologist
+on-site as primary supervisor 5 .
+1
+
+Client Populations and Presenting Issues
+NW Ohio CMHCs serve a diverse rural/suburban mix. Most clients are adults (often 25–64) who are low-
+income or uninsured, with Medicaid covering many. Common populations include:
+- Adults with mood/anxiety disorders: Depression and generalized anxiety are prevalent. (Local data show
+~15% of surveyed adults had 2+ weeks of hopelessness in the past year 8 .) Many struggle with chronic
+stress or trauma.
+- Severe mental illness (SPMI): A substantial portion have schizophrenia, schizoaffective disorder, or
+bipolar disorder. State reports note that rural CMHCs prioritize SPMI adults and severely emotionally
+disturbed (SED) youth 9 .
+- Substance use disorders: Opioid and alcohol dependence are common, often with co-occurring mental
+health issues. For example, local CMHCs (e.g. Recovery Services of NW Ohio) specialize in dual-diagnosis
+cases 10 .
+- Trauma survivors: Many clients have histories of abuse, domestic violence, or combat exposure. Rural
+northwest Ohio counties have some of the state’s highest suicide rates 11 , reflecting high trauma and
+stress levels. Interns regularly encounter PTSD and grief work.
+- Youth and family cases: Adolescents with anxiety, ADHD, or behavioral issues (SED) come through youth
+teams or schools. Older adults with late-life depression, memory problems, or caregiving stress are also
+seen.
+- Underserved groups: These include rural elderly (frailty, isolation), migrants/farmworkers (often Hispanic
+or Amish communities), and minority clients. Statewide, about 57% of public mental health clients are
+White, with significant Black (17%) and Hispanic (15%) minorities 12 . In Toledo/Surrounding areas, interns
+also see urban poverty and cultural diversity.
+These populations bring a broad range of diagnoses (major depression, anxiety disorders, PTSD, bipolar,
+schizophrenia, personality disorders, ADHD, etc.) and social stressors (poverty, job loss, legal issues). For
+instance, in Lucas County 4% of adults reported seriously considering suicide in the past year 8 , so
+assessing risk and safety planning are common tasks.
+Supervision and Training Structure
+The internship follows APA and Ohio licensing requirements closely. We have two primary supervisors
+(licensed psychologists with ≥2 years post-licensure) as required 13 . Typically:
+• Individual Supervision (2 hrs/week): One-on-one meetings to review cases, diagnostics, and
+therapy skills. Ohio mandates ≥1 hr per 20 clinical hours 2 . In my setting I consistently get 2 hours
+weekly.
+• Group Supervision (~1–2 hrs/week): A multidisciplinary case conference or group supervision with
+peers. This covers group cases, case conceptualization, and peer teaching. Ohio law explicitly
+requires at least 1 additional hour of such learning activities per week 7 .
+• Live Observation/Co-Therapy: Periodically, supervisors sit in on therapy or review recorded
+sessions. For example, I once had a session observed for immediate feedback. Training models
+emphasize “live observation by a supervisor” as part of learning 14 .
+• Supervisor Credentials: All supervision is provided by licensed doctoral psychologists. Ohio rules
+insist on a licensed psychologist on-site as primary supervisor 5 . By regulation, ≥75% of
+2
+
+supervision hours must come from psychologists (others like social workers cannot provide majority
+supervision) 15 .
+In addition, there are regular staff meetings, ethics case reviews, and informal mentoring. Interns also co-
+lead community outreach or group therapy (with supervision), expanding skills. Our program values
+feedback – for example, after a family therapy video session, my supervisor gave an hour of focused
+coaching.
+EPPP and Ethics Preparation
+Preparing for licensure exams is integrated into the year. Interns cover professional ethics throughout the
+training. We have a seminar series on the APA Ethics Code (confidentiality, dual relationships, mandatory
+reporting, etc.), reflecting the APA goal that interns “learn to apply… professional ethics and standards” 6 .
+Ethical scenarios (e.g. rural dual-role conflicts or telehealth consent issues) are discussed in supervision.
+For the EPPP, many interns form study groups in late spring. The EPPP heavily tests ethics/legal standards
+as part of its content, so our case conferences and didactics reinforce state laws (e.g. competency statutes)
+and Ohio’s required jurisprudence exam topics. Though not always formally scheduled, supervisors
+encourage reading APA’s ethics and Ohio Board materials. For example, one of my peers ran a weekly quiz
+night on EPPP questions. In short, the internship embeds ethics (as above) and promotes self-study for
+licensure testing.
+Cultural and Ethical Considerations in Rural NW Ohio
+Clinicians must adapt to the Midwest/rural context. As Ohio Board Director Tony Coder notes, “the more you
+get out into those rural areas, the less opportunity you have for behavioral health care…combined with stigma…
+[it’s] a perfect little storm” 16 . In practice, this means:
+• Stigma and Trust: Many locals (farmers, working-class families, Amish/Mennonite communities) are
+private and value self-reliance. They may resist labeling or therapy. Interns learn to build rapport
+gradually, sometimes integrating faith or community resources. Case examples often involve
+navigating stigma (e.g. a teen hesitant to see a “shrink” until a school counselor referred them).
+Training emphasizes sensitivity to local culture.
+• Provider Shortage: Rural sites have few clinicians. I often see clients who drove 30+ miles for an
+appointment. We rely on telehealth or weekend intake clinics to reach distant patients. This scarcity
+also raises ethical urgency – for instance, clinicians might extend a session to ensure patient safety if
+next visit is far off.
+• Dual Relationships: In small towns, clients might know clinicians socially. We discuss this in
+supervision to maintain boundaries. Confidentiality is critical; one anecdote from my supervisor was
+a case of mistaken identity at a church potluck that underscored extreme care with client info.
+• Access and Resources: Limited transportation, poverty, and lack of Internet can impede care. I
+frequently coordinate with social services or churches to arrange rides. Ethically, we must balance
+ideal therapy plans with what’s feasible (e.g. scheduling text-based check-ins if video calls are
+impossible).
+• High-Risk Indicators: Rural NW Ohio counties have some of Ohio’s highest suicide rates 11 . The
+training stresses suicide assessment and community norms (e.g. gun safety, farming accidents) in
+risk management. We learn local crisis protocols and involve family or clergy when appropriate.
+3
+
+In all, the rural/Midwestern setting demands cultural humility. For example, approaching an older client
+about depression might involve acknowledging their belief “I’m not supposed to burden others.” Ethical
+training (case vignettes, role-plays) prepares interns to respect these values while advocating for care.
+Each week, I find my training woven into the routine: applying evidence-based therapies learned at
+Northwestern to a farming family, consulting supervisors on borderline personality issues in a tight-knit
+Mennonite community, and always reflecting on ethical practice in supervision. This immersive year
+combines didactics, supervision, and direct service into procedural knowledge – precisely the preparation
+needed for Ohio licensure and competent rural practice.
+Sources: APA internship standards and Ohio licensure rules outline supervision and training requirements
+13 2 . Regional data and program descriptions inform typical CMHC populations and issues 9 17 10 .
+1 APA Accredited Doctoral Internship Program in Health Service Psychology | Counseling Center
+3 | University of Illinois Chicago
+https://counseling.uic.edu/training/internship/
+2 5 7 Rule 4732-9-01 - Ohio Administrative Code | Ohio Laws
+15 https://codes.ohio.gov/ohio-administrative-code/rule-4732-9-01
+4 adler.edu
+6 https://www.adler.edu/wp-content/uploads/2024/10/Chicago-TP-Community-Mental-Health-Internship-Sept.-2024-
+Update.pdf
+8 hcno.org
+https://www.hcno.org/wp-content/uploads/2023/12/2022-2023-Lucas-County-Community-Health-Assessment-12-12-23.pdf
+9 The Role of Community Mental Health Centers as Rural Safety Net Providers
+https://www.ruralhealthresearch.org/mirror/0/74/wp30.pdf
+10 Homepage - Recovery Services of Northwest Ohio
+https://www.rsnwo.org/
+11 16 Rural Ohioans Struggle with Behavioral Health Access, Stigma – Ohio Academy of Family
+17 Physicians
+https://www.ohioafp.org/wfmu-article/rural-ohioans-struggle-with-behavioral-health-access-stigma/
+12 Ohio 2023 Uniform Reporting System Mental Health Data Results
+https://www.samhsa.gov/data/sites/default/files/reports/rpt53139/Ohio.pdf
+13 Internship Membership Criteria
+https://www.appic.org/Joining-APPIC/Internship-Membership-Criteria
+14 Psychology Internship Intervention and Prevention Rotations | Children's Hospital of
+Philadelphia
+https://www.chop.edu/centers-programs/psychology-education-and-training-program/internship-program/intervention-
+and-prevention-rotation
+4
+
