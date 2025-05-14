@@ -1,0 +1,49 @@
+%%% Memory Data Model
+classDiagram
+    class Memory {
+        uuid id
+        string type
+        timestamp created_at
+        timestamp updated_at
+        string source
+        boolean is_canon
+        object content
+    }
+    
+    class JaneMemory {
+        string topic
+        string[] related_topics
+        string[] contradicts
+        string[] supports
+        object detailed_content
+    }
+    
+    class ClientMemory {
+        uuid client_id
+        string disclosure_type
+        int sensitivity_level
+        string[] topics
+        timestamp disclosed_at
+        int session_number
+    }
+    
+    class KnowledgeChunk {
+        string source_document
+        int page_number
+        string[] topics
+        float[] embedding
+        string content
+    }
+    
+    class Session {
+        uuid id
+        uuid client_id
+        timestamp date
+        string[] topics_discussed
+        object summary
+    }
+    
+    Memory <|-- JaneMemory
+    Memory <|-- ClientMemory
+    Memory <|-- KnowledgeChunk
+    ClientMemory "many" -- "many" Session

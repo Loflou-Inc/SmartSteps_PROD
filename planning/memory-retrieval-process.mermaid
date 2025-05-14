@@ -1,0 +1,29 @@
+%%% Memory Retrieval Process
+sequenceDiagram
+    participant C as Client
+    participant J as Jane AI
+    participant JM as Jane Memory
+    participant CM as Client Memory
+    participant KB as Knowledge Base
+    participant V as Validator
+    
+    C->>J: Ask question
+    J->>JM: Check Jane's canonical & generated memories
+    JM-->>J: Return relevant memories
+    J->>CM: Check client disclosure history
+    CM-->>J: Return previous disclosures
+    J->>KB: Search knowledge base
+    KB-->>J: Return research context
+    
+    J->>J: Generate draft response
+    J->>V: Validate new information
+    V-->>J: Consistency check results
+    
+    alt Consistent new memory
+        J->>JM: Save new generated memories
+    else Inconsistency detected
+        J->>J: Revise response
+    end
+    
+    J->>CM: Save new client disclosures
+    J->>C: Deliver response

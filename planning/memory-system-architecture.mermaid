@@ -1,0 +1,29 @@
+%%% Memory System Architecture
+flowchart TD
+    subgraph "Memory System Architecture"
+    A[Client Message] --> B{Message Type?}
+    B -->|About Jane| C[Check Jane's Memory]
+    B -->|About Client History| D[Check Client Memory]
+    B -->|Therapeutic Question| E[Check Knowledge Base]
+    
+    C --> C1{Exact Match?}
+    C1 -->|Yes| C2[Use Existing Memory]
+    C1 -->|No| C3[Generate New Memory]
+    C3 --> C4[Quarantine Buffer]
+    C4 --> C5{Consistency Check}
+    C5 -->|Pass| C6[Promote to Canon]
+    C5 -->|Fail| C7[Human Review]
+    
+    D --> D1[Retrieve Relevant Disclosures]
+    D1 --> D2[Add to Response Context]
+    
+    E --> E1[Semantic Search Research Docs]
+    E1 --> E2[Add Citations to Response]
+    
+    C2 --> F[Generate Response]
+    C6 --> F
+    D2 --> F
+    E2 --> F
+    
+    F --> G[Save New Client Disclosures]
+    end

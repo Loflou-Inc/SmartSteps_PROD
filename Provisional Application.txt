@@ -1,0 +1,105 @@
+70980-US-PRV 1 TITLE METHOD OF PSYCHOLOGICAL ASSESSMENT BACKGROUND OF THE INVENTION 
+[0001] The present invention relates to an improved method of psychological assessment. 
+[0002] An increasing body of evidence highlights the ongoi ng trends in practitioner-
+client interactions and how these can significantly impact outcomes. This trend is evident in several different domains, such as the relations hip between a teacher and student, a doctor and patient, a therapist and client, and so on. Within these examples, the predictive role of social emotional skills are as important as cognitive skills in achieving goals and/or outcomes. In fact, the presence of social an d emotional skills can serve as predictors of preparedness, both preparedness for t he professional with regard to their ability to create an environment where goals can be attained and preparedness for the client in terms of their readiness to make positive changes within the aforementioned environment. 
+[0003] For practitioner-client interactions to succeed, a rapport must be established, 
+and the onus for this creation largely lies with th e professional. An overwhelming body of research literature points to the importance tha t good practitioner-client relationships have on generating positive outcomes within a varie ty of disciplines, including education, 
+the medical field, therapy, and criminal justice to name a few. Specifically, there are certain psychological constructs that aid in the de velopment of good practitioner-client relationships and the development of rapport. Withi n this particular intervention, the focus is on specific psychological constructs, such as self-awareness, self-management, 
+social awareness, relationship skills, responsible decision making and self-disclosure. The Collaborative for Academic, Social, and Emotional L earning (CASEL) is an international organization responsible for one of the widely cite d frameworks used for defining social 
+
+----- Page Break -----
+
+70980-US-PRV 2 emotional learning. Yet while integral, the measur ement of social emotional skills in experimental research has yet to be clarified (Shi, Cheung, Zhang & Tam, 2022). 
+
+SUMMARY OF THE INVENTION 
+[0004] Various aspects of this invention will become appar ent to those skilled in the art from the following detailed description of the preferred embodiment, when read in light of the accompanying drawings. 
+
+BRIEF DESCRIPTION OF THE DRAWINGS 
+[0005] Fig. 1 is a chart illustrating an improved method o f psychological assessment in accordance with this invention. 
+
+DETAILED DESCRIPTION OF THE PREFERRED EMBODIMENT 
+[0006] This invention is a psychological assessment that i ncorporates psychometric properties aimed specifically at measuring the psyc hological constructs attributed to social emotional skill development and self-disclos ure. The utilization of the psychological assessment is geared toward addressin g the levels of preparedness for both practitioner and client alike. The psychological as sessment involves assessing a situation where the practitioner and client are active partic ipants. The practitioner assumes the role of the instructor, and the client is that of the pa rticipant. The psychological process involves depicting situations where often undisclos ed behavior or behaviors are brought to the fore using a character within the scenario a s the scapegoat and point of discussion. 
+Within this process, the aforementioned behaviors a nd decision-making are discussed freely by participants (because the focus is on the character within the given scenario and not the individual participant themselves). It is t hrough this discussion that the psychometric scale measures the previously mentione d psychological constructs (self-
+awareness, self-management, social awareness, relat ionship skills, responsible decision making and self-disclosure). The goal is to measure not only the participants' ability to 
+
+----- Page Break -----
+
+70980-US-PRV 3 display social and emotional regulation and readine ss, but also to measure and see how well the instructor (practitioner) is at preparing the student, patient, criminal justice-
+involved individual, or therapy client for behavior al change and improved decision making. 
+[0007] The psychological assessment for the purposes of ac cessibility may be used primarily as a technological product and, therefore , can exist in forms such as, but not limited to, technological applications, computer so ftware, and so forth. The process incorporates three distinct phases: (1) the scenari o phase where choices are made by the participants; (2) the query phase where said choice s are scrutinized and discussed 
+(instructor asks the scenario driven evaluative que stions, the participant answers the scenario driven evaluative questions); and (3) a ph ase where the evaluative questions and subsequent responses/discussions are analyzed or me asured for the studied psychological constructs (social emotional and self -disclosure. In short, the scenarios help to generate social and emotional and self-disclosure behavioral content that will be measured and analyzed to determine the level of preparedness of the client and practitioner alike. 
+[0008] This psychological process tool enhances the commun icative relationship between clients and professionals by providing a st ructured approach to understanding and addressing personal and emotional challenges. T o best understand the nature of the client-professional relationship, a pre/post-evalua tion strategy is deployed with the process. The evaluation instrument is designed to m easure concepts of self-awareness, 
+self-management, social awareness, relationship ski lls, responsible decision making, and self-disclosure before and after the Smart Steps pr ogram is completed. To ensure precise measurement of these attributes, a detailed psychom etric analysis using the Rasch model 
+(Rasch, 1965; Wright, 1979) is performed, allowing for the quantification of communication effectiveness and emotional engagemen t at both the pre- and post-stages of administration. Evaluation of client progress is two-level, including both a client self-
+report and the observation of the trained professio nal. Baseline, growth, and final measures of development are produced. Individualize d, suggested therapeutic 
+
+----- Page Break -----
+
+70980-US-PRV 4 interventions dependent on performance measures are then generated to guide additional positive development. Therapeutic intervention stra tegies are developed to align with performance measures based on standard behavioral p sychology. 
+[0009] To support the practical deployment of this psychol ogical assessment process, 
+a flexible and scalable software application may be used. This application serves as the digital foundation for administering scenario-based interactions, collecting participant responses, and generating measurable insights align ed with the targeted psychological constructs, namely, self-awareness, self-management , social awareness, relationship skills, responsible decision-making, and self-discl osure. 
+[0010] The software will operationalize the three-phase pr ocess (scenario, query, 
+and evaluation) through an intuitive user interface . Users, including both practitioners and clients, will be guided through structured, int eractive scenarios. Each scenario presents decision points and behavioral dilemmas in tended to elicit discussion and self-
+reflection. Following each scenario, tailored evalu ative questions will be delivered by the practitioner or via system automation, prompting pa rticipant engagement and response. 
+[0011] The application may be developed using the C# progr amming language, 
+chosen for its versatility, performance, and abilit y to support cross-platform deployment. 
+The system includes two distinct interfaces, one fo r practitioners and administrative users to manage assessments and view analytical results, and another for individual participants engaging with the scenarios and queries. To priorit ize user privacy and encourage open engagement, the system will feature anonymous login capabilities and anonymous data collection protocols. No personally identifiable in formation will be required for user access, and all interaction data will be securely s tored and anonymized for analysis and research purposes. 
+[0012] All user interactions and responses within the syst em will be digitally captured and processed. Embedded logic will enable analysis of response patterns through psychometric models such as Rasch analysis. These m odels are utilized to quantify 
+
+----- Page Break -----
+
+70980-US-PRV 5 development in the targeted social-emotional domain s, allowing for assessment of both client growth and practitioner efficacy over time. 
+[0013] To further enhance the user experience and analytic capabilities, the software may incorporate AI-driven large language model (LLM ) technology. These models will assist in guiding scenario navigation, offering ada ptive feedback, and deepening the reflective dialogue between practitioner and client . In addition, anonymized interaction data may be used to train a proprietary LLM designe d specifically to support social-
+emotional learning and behavior change within the f ramework of this process. 
+[0014] The platform is designed with extensibility in mind . For example, the application may be expanded into virtual reality (V R) environments, enabling immersive scenario training for clients and practitioners ali ke. Additional features may include voice interaction, third-party system integration, and re al-time feedback modules depending on emerging needs and technological capabilities. By t ranslating this psychological process into a sophisticated software platform, the system ensures both accessibility and fidelity of administration while enabling scalable data coll ection, intelligent interaction, and meaningful interpretation to support practitioner-c lient relationship growth. 
+[0015] The overall rationale of this psychological assessm ent tool is to standardize practitioner interactions with clients within a ple thora of social service professions 
+(education, criminal justice, and mental health/cou nseling). 
+[0016] Research has already shown practitioners with the a bility to build and develop rapport and good relationships are more likely to s ee positive outcomes across a variety of disciplines; probation, counseling, education an d so forth. 
+[0017] Practitioners may be measured practitioners on thes e Intervening or Moderating Variables. 
+[0018] Also, practitioners may be measured on how they int eract using our ID tool which will incorporate aspects specifically related to the Intervening or Moderating Variables. 
+[0019] The aspects which are included in the ID tool are a s follows: 
+
+----- Page Break -----
+
+70980-US-PRV 6 • 4/5 Self-Disclosure tenets – Intimacy, Valence, Int ent, Amount, Breadth; 
+• Social & Emotional Learning aspects; and 
+• Elements of the WAMCI – bond, trust, reactance, goa ls/restrictions. 
+[0020] Therefore, by using the ID tool (which is built on these aspects), the identifiable traits will allow: 
+• the prediction what traits lead to practitioner suc cess; 
+• the prediction and identification of what leads to client success; and 
+• the standardization of how practitioner interaction s need to be in the future 
+(develop a template). 
+[0021] The principle and mode of operation of this inventi on have been explained and illustrated in its preferred embodiment. However, it must be understood that this invention may be practiced otherwise than as specif ically explained and illustrated without departing from its spirit or scope. 
+
+----- Page Break -----
+
+70980-US-PRV 7 What is claimed is: 
+ 1. A method of psychological assessment substanti ally as described and illustrated herein. 
+
+----- Page Break -----
+
+70980-US-PRV 8 
+FIG. 1 - THEORETICAL MODEL 
+•Practitioner 
+•Client INDEPENDENT 
+VARIABLES 
+•Working/Therapeutic Alliance 
+•Interactions 
+•Learning Environment Construction 
+•Social Emotional Learning Tenets: 
+•Self-Awareness 
+•Self-Management 
+•Social Awareness 
+•Relationship Skills 
+•Responsible Decision-
+Making 
+•Motivation (Client & 
+Practitoner) INTERVENING OR MODERATING 
+VARIABLES 
+•Recidivism 
+•Probation Success 
+•Practitioner Efficacy 
+•Grades 
+•Behavior (-/+) 
+•Attendance DEPENDENT 
+VARIABLES 
