@@ -4,8 +4,8 @@ import random
 import time
 from typing import Dict, List, Optional, Any
 
-from provider.message import Message, MessageRole
-from provider.interface import AIProvider, ProviderConfig, ProviderResponse
+from .message import Message, MessageRole
+from .interface import AIProvider, ProviderConfig, ProviderResponse
 
 class MockProvider(AIProvider):
     """

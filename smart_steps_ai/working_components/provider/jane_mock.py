@@ -6,9 +6,9 @@ import logging
 import os
 from typing import Dict, List, Optional, Any
 
-from provider.message import Message, MessageRole
-from provider.interface import ProviderConfig, ProviderResponse
-from provider.mock import MockProvider
+from .message import Message, MessageRole
+from .interface import ProviderConfig, ProviderResponse
+from .mock import MockProvider
 
 from smart_steps_ai.memory.models import MemoryType, MemoryStatus, JaneMemory
 from smart_steps_ai.memory.store import MemoryStore
