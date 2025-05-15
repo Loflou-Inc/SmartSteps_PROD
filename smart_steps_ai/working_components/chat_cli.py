@@ -4,10 +4,10 @@ Simple CLI chat tool for testing the mock providers
 
 import argparse
 
-from provider.interface import ProviderConfig
-from provider.mock import MockProvider
-from provider.jane_mock import JaneMockProvider
-from provider.message import Message, MessageRole
+from smart_steps_ai.working_components.provider.interface import ProviderConfig
+from smart_steps_ai.working_components.provider.mock import MockProvider
+from smart_steps_ai.working_components.provider.jane_mock import JaneMockProvider
+from smart_steps_ai.working_components.provider.message import Message, MessageRole
 
 def main():
     parser = argparse.ArgumentParser(description="CLI Chat with Mock Personas")
